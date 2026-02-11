@@ -1,0 +1,17 @@
+<section class="space-y-4">
+  <h2 class="text-2xl font-bold">Modals</h2>
+  <button class="btn" onclick="document.getElementById('modal_demo').showModal()">Open modal</button>
+  <dialog id="modal_demo" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Confirm action</h3>
+      <p class="py-2">Are you sure you want to proceed?</p>
+      <div class="modal-action">
+        <form method="dialog" class="flex gap-2">
+          <button class="btn btn-ghost">Cancel</button>
+          <button class="btn btn-primary">Confirm</button>
+        </form>
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop"><button>close</button></form>
+  </dialog>
+</section>

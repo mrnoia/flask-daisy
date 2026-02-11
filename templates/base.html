@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Theme-aware Dashboard{% endblock %}</title>
+
+  <!-- Tailwind + daisyUI -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" />
+
+  <!-- Your extracted CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body class="min-h-screen bg-base-100 text-base-content">
+  {% include 'partials/_navbar.html' %}
+
+  <main class="container mx-auto p-4 space-y-6">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- Your extracted JS -->
+  <script type="module" src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+  
+  {% block scripts %}{% endblock %}
+</body>
+</html>

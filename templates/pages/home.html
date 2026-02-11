@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Home · Theme-aware{% endblock %}
+{% block content %}
+  <!-- Theme sample badges -->
+  <section class="flex items-center gap-2 flex-wrap">
+    <span class="text-sm opacity-70 font-semibold">Theme colors:</span>
+    <span class="badge badge-primary">primary</span>
+    <span class="badge badge-secondary">secondary</span>
+    <span class="badge badge-accent">accent</span>
+    <span class="badge badge-base border border-base-content">base</span>
+  </section>
+
+  {% include 'partials/_stats.html' %}
+
+  <!-- Charts grid -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="card bg-base-100 shadow-lg"><div class="card-body"><h2 class="card-title text-lg">Revenue Trend (Line)</h2><div class="chart-wrap"><canvas id="lineChart"></canvas></div><div class="card-actions justify-end pt-2"><button class="btn btn-sm btn-outline">Export</button></div></div></div>
+    <div class="card bg-base-100 shadow-lg"><div class="card-body"><h2 class="card-title text-lg">Monthly Orders (Bar)</h2><div class="chart-wrap"><canvas id="barChart"></canvas></div><div class="card-actions justify-end pt-2"><button class="btn btn-sm btn-outline">Export</button></div></div></div>
+    <div class="card bg-base-100 shadow-lg"><div class="card-body"><h2 class="card-title text-lg">Category Distribution (Doughnut)</h2><div class="chart-wrap"><canvas id="doughnutChart"></canvas></div></div></div>
+    <div class="card bg-base-100 shadow-lg"><div class="card-body"><h2 class="card-title text-lg">Performance Metrics (Radar)</h2><div class="chart-wrap"><canvas id="radarChart"></canvas></div></div></div>
+    <div class="card bg-base-100 shadow-lg"><div class="card-body"><h2 class="card-title text-lg">Growth Over Time (Area)</h2><div class="chart-wrap"><canvas id="areaChart"></canvas></div></div></div>
+    <div class="card bg-base-100 shadow-lg"><div class="card-body"><h2 class="card-title text-lg">Sales vs Target (Mixed)</h2><div class="chart-wrap"><canvas id="mixedChart"></canvas></div></div></div>
+    <div class="card bg-base-100 shadow-lg"><div class="card-body"><h2 class="card-title text-lg">Top Products (Horizontal Bar)</h2><div class="chart-wrap"><canvas id="horizontalBarChart"></canvas></div></div></div>
+    <div class="card bg-base-100 shadow-lg"><div class="card-body"><h2 class="card-title text-lg">Polar Area Chart</h2><div class="chart-wrap"><canvas id="polarChart"></canvas></div></div></div>
+  </section>
+
+  <!-- Component Showcase (kept simple; you can split further later) -->
+
+
+{% include 'partials/_charts_pie.html' %}
+{% include 'partials/_charts_stacked_bar.html' %}
+{% include 'partials/_charts_grouped_bar.html' %}
+{% include 'partials/_charts_multi_axis_line.html' %}
+{% include 'partials/_charts_scatter.html' %}
+{% include 'partials/_charts_bubble.html' %}
+{% include 'partials/_charts_radar_compare.html' %}
+{% include 'partials/_charts_polar_mini.html' %}
+
+  {% include 'partials/_components_buttons.html' %}
+  {% include 'partials/_components_forms.html' %}
+  {% include 'partials/_components_alerts.html' %}
+  {% include 'partials/_components_badges.html' %}
+  {% include 'partials/_components_progress.html' %}
+  {% include 'partials/_components_tabs.html' %}
+  {% include 'partials/_components_table.html' %}
+  {% include 'partials/_components_cards.html' %}
+  {% include 'partials/_components_modals.html' %}
+  {% include 'partials/_components_dropdowns.html' %}
+  {% include 'partials/_components_breadcrumbs.html' %}
+  {% include 'partials/_components_pagination.html' %}
+  {% include 'partials/_components_accordion.html' %}
+  {% include 'partials/_components_steps.html' %}
+  {% include 'partials/_components_toasts.html' %}
+  {% include 'partials/_components_tooltips.html' %}
+  {% include 'partials/_components_drawer.html' %}
+  {% include 'partials/_components_footer.html' %}
+  {% include 'partials/_components_empty_state.html' %}
+  {% include 'partials/_components_skeleton.html' %}
+{% endblock %}

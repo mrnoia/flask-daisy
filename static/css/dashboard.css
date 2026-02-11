@@ -1,0 +1,8 @@
+html, body { transition: color .2s ease, background-color .2s ease; }
+.card { border: 1px solid hsl(var(--b3) / 1); }
+.chart-wrap { height: 280px; }
+.chart-wrap-sm { height: 200px; }
+.badge-primary { background-color: hsl(var(--p)); color: hsl(var(--pc)); }
+.badge-secondary { background-color: hsl(var(--s)); color: hsl(var(--sc)); }
+.badge-accent { background-color: hsl(var(--a)); color: hsl(var(--ac)); }
+.badge-base { background-color: hsl(var(--b1)); color: hsl(var(--bc)); }

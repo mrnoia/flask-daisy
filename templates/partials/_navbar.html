@@ -1,0 +1,30 @@
+<header class="navbar bg-base-100 border-b sticky top-0 z-50">
+  <div class="navbar-start"><a class="btn btn-ghost text-xl">📊 Theme-aware Dashboard</a></div>
+  <div class="navbar-center hidden md:flex">
+    <ul class="menu menu-horizontal">
+      <li><a>Overview</a></li>
+      <li><a>Analytics</a></li>
+      <li><a>Settings</a></li>
+    </ul>
+  </div>
+  <div class="navbar-end gap-3 pr-3">
+    <label class="swap swap-rotate" title="Toggle light / dark">
+      <input id="quickToggle" type="checkbox" />
+      <svg class="swap-off h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h4v-2H1v2zm10-9h2V0h-2v4zm7.04.46l1.79-1.8-1.41-1.41-1.8 1.79 1.42 1.42zM20 11v2h4v-2h-4zm-9 9h2v4h-2v-4zM4.95 18.36l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM19.05 18.36l-1.42 1.42 1.8 1.79 1.41-1.41-1.79-1.8zM12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>
+      <svg class="swap-on h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M21.64 13.64A9 9 0 1110.36 2.36a7 7 0 0011.28 11.28z"/></svg>
+    </label>
+    <label class="form-control w-44">
+      <div class="label pt-0"><span class="label-text text-xs">Theme</span></div>
+      <select id="themeSelect" class="select select-bordered select-sm">
+        <option value="system">System</option>
+        <option value="light">light</option>
+        <option value="dark" selected>dark</option>
+        <option value="cupcake">cupcake</option>
+        <option value="corporate">corporate</option>
+        <option value="forest">forest</option>
+        <option value="synthwave">synthwave</option>
+        <option value="nord">nord</option>
+      </select>
+    </label>
+  </div>
+</header>

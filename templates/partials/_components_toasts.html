@@ -1,0 +1,13 @@
+<section class="space-y-4">
+  <h2 class="text-2xl font-bold">Toasts</h2>
+  <button class="btn" onclick="showToast()">Show toast</button>
+  <script>
+    function showToast(){
+      const t = document.createElement('div');
+      t.className = 'toast toast-end z-50';
+      t.innerHTML = '<div class='alert alert-success'><span>Saved!</span></div>';
+      document.body.appendChild(t);
+      setTimeout(()=>t.remove(), 2000);
+    }
+  </script>
+</section>
