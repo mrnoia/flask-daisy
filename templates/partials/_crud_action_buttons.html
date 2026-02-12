@@ -1,0 +1,78 @@
+<section class="card bg-base-100 shadow-lg">
+  <div class="card-body">
+    <h2 class="card-title">Action Buttons & Dropdowns</h2>
+
+    <div class="space-y-6">
+      <!-- Row-level Actions -->
+      <div>
+        <h3 class="font-semibold mb-3">Row-level Actions</h3>
+        <div class="flex flex-wrap gap-2">
+          <button class="btn btn-sm btn-primary">Edit</button>
+          <button class="btn btn-sm btn-outline">View</button>
+          <button class="btn btn-sm btn-error">Delete</button>
+          <button class="btn btn-sm btn-warning">Duplicate</button>
+          <button class="btn btn-sm btn-info">Export</button>
+        </div>
+      </div>
+
+      <!-- Icon Buttons -->
+      <div>
+        <h3 class="font-semibold mb-3">Icon Action Buttons</h3>
+        <div class="flex flex-wrap gap-2">
+          <button class="btn btn-circle btn-primary btn-sm" title="Edit">✏️</button>
+          <button class="btn btn-circle btn-info btn-sm" title="View">👁️</button>
+          <button class="btn btn-circle btn-error btn-sm" title="Delete">🗑️</button>
+          <button class="btn btn-circle btn-warning btn-sm" title="Archive">📦</button>
+          <button class="btn btn-circle btn-success btn-sm" title="Download">⬇️</button>
+          <button class="btn btn-circle btn-ghost btn-sm" title="More">⋮</button>
+        </div>
+      </div>
+
+      <!-- Dropdown Actions -->
+      <div>
+        <h3 class="font-semibold mb-3">Dropdown Actions</h3>
+        <div class="flex flex-wrap gap-2">
+          <div class="dropdown">
+            <button tabindex="0" class="btn btn-sm">
+              Quick Actions
+              <svg class="fill-current" width="16" height="16" viewBox="0 0 24 24">
+                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+              </svg>
+            </button>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a>Edit Details</a></li>
+              <li><a>Duplicate</a></li>
+              <li><a>Archive</a></li>
+              <li><a class="text-error">Delete</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown">
+            <button tabindex="0" class="btn btn-sm btn-outline">
+              More Options
+              <svg class="fill-current" width="16" height="16" viewBox="0 0 24 24">
+                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+              </svg>
+            </button>
+            <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a>Export as CSV</a></li>
+              <li><a>Print</a></li>
+              <li><a>Share</a></li>
+              <li><a>Clone</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button Groups -->
+      <div>
+        <h3 class="font-semibold mb-3">Button Groups</h3>
+        <div class="join">
+          <button class="join-item btn btn-sm btn-outline">List View</button>
+          <button class="join-item btn btn-sm btn-outline">Grid View</button>
+          <button class="join-item btn btn-sm btn-outline">Table View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,133 @@
+<section id="spacing" class="space-y-4">
+  <div class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h2 class="card-title">5. Spacing & Padding</h2>
+      <p class="text-sm opacity-75 mb-4">Control margins, padding, and gaps between elements</p>
+
+      <!-- Padding Examples -->
+      <div class="space-y-4">
+        <h3 class="font-semibold">Padding (p-*)</h3>
+        <p class="text-sm opacity-75">Space inside an element</p>
+        
+        <!-- Live Examples -->
+        <div class="space-y-2">
+          <div class="bg-base-200">
+            <div class="bg-primary text-primary-content p-2">p-2 (padding: 0.5rem)</div>
+          </div>
+          <div class="bg-base-200">
+            <div class="bg-primary text-primary-content p-4">p-4 (padding: 1rem)</div>
+          </div>
+          <div class="bg-base-200">
+            <div class="bg-primary text-primary-content p-8">p-8 (padding: 2rem)</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">p-4</span>"&gt;
+  Padding on all sides
+&lt;/div&gt;
+
+&lt;div class="<span class="text-success font-semibold">px-4 py-8</span>"&gt;
+  Horizontal padding 4, vertical padding 8
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <strong>Padding variations:</strong> <code>p-*</code> (all), <code>px-*</code> (horizontal), <code>py-*</code> (vertical), <code>pt-*</code> (top), <code>pb-*</code> (bottom), <code>pl-*</code> (left), <code>pr-*</code> (right)
+          </div>
+        </div>
+      </div>
+
+      <!-- Margin Examples -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Margin (m-*)</h3>
+        <p class="text-sm opacity-75">Space outside an element</p>
+        
+        <!-- Live Examples -->
+        <div class="bg-base-200 p-4 rounded-lg space-y-2">
+          <div class="bg-primary text-primary-content p-2 m-2">m-2 (margin: 0.5rem)</div>
+          <div class="bg-primary text-primary-content p-2 m-4">m-4 (margin: 1rem)</div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">m-4</span>"&gt;
+  Margin on all sides
+&lt;/div&gt;
+
+&lt;div class="<span class="text-success font-semibold">mx-auto</span>"&gt;
+  Center with auto margins
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Gap Examples -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Gap (gap-*)</h3>
+        <p class="text-sm opacity-75">Space between flex/grid items</p>
+        
+        <!-- Live Examples -->
+        <div>
+          <p class="text-sm font-semibold mb-2">gap-2</p>
+          <div class="bg-base-200 p-4 rounded-lg flex gap-2">
+            <div class="bg-primary text-primary-content p-3 rounded">A</div>
+            <div class="bg-primary text-primary-content p-3 rounded">B</div>
+            <div class="bg-primary text-primary-content p-3 rounded">C</div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-sm font-semibold mb-2">gap-4</p>
+          <div class="bg-base-200 p-4 rounded-lg flex gap-4">
+            <div class="bg-secondary text-secondary-content p-3 rounded">A</div>
+            <div class="bg-secondary text-secondary-content p-3 rounded">B</div>
+            <div class="bg-secondary text-secondary-content p-3 rounded">C</div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-sm font-semibold mb-2">gap-8</p>
+          <div class="bg-base-200 p-4 rounded-lg flex gap-8">
+            <div class="bg-accent text-accent-content p-3 rounded">A</div>
+            <div class="bg-accent text-accent-content p-3 rounded">B</div>
+            <div class="bg-accent text-accent-content p-3 rounded">C</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">flex gap-4</span>"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Space-y Examples -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Space-Y (space-y-*)</h3>
+        <p class="text-sm opacity-75">Vertical spacing between direct children</p>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="space-y-4">
+            <div class="bg-primary text-primary-content p-3 rounded">Item 1</div>
+            <div class="bg-primary text-primary-content p-3 rounded">Item 2</div>
+            <div class="bg-primary text-primary-content p-3 rounded">Item 3</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">space-y-4</span>"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+  &lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>

@@ -1,0 +1,694 @@
+{% extends 'base.html' %}
+
+{% block title %}DaisyUI Components Tutorial - Flask Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-6 space-y-8">
+  <!-- Page Header -->
+  <section class="space-y-2">
+    <h1 class="text-4xl font-bold">DaisyUI Components Showcase</h1>
+    <p class="text-lg opacity-75">Learn how to use 30+ pre-built components from DaisyUI with live examples and code snippets</p>
+  </section>
+
+  <!-- Buttons -->
+  <section id="buttons" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">1. Buttons</h2>
+        <p class="text-sm opacity-75 mb-4">Various button styles and sizes for different actions</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-4 mb-4">
+          <div>
+            <p class="text-sm font-semibold mb-2">Color Variants</p>
+            <div class="flex flex-wrap gap-2">
+              <button class="btn">Default</button>
+              <button class="btn btn-primary">Primary</button>
+              <button class="btn btn-secondary">Secondary</button>
+              <button class="btn btn-accent">Accent</button>
+              <button class="btn btn-success">Success</button>
+              <button class="btn btn-warning">Warning</button>
+              <button class="btn btn-error">Error</button>
+              <button class="btn btn-info">Info</button>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm font-semibold mb-2">Button Variants</p>
+            <div class="flex flex-wrap gap-2">
+              <button class="btn">Solid</button>
+              <button class="btn btn-outline">Outline</button>
+              <button class="btn btn-ghost">Ghost</button>
+              <button class="btn btn-link">Link</button>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm font-semibold mb-2">Sizes</p>
+            <div class="flex flex-wrap gap-2 items-center">
+              <button class="btn btn-xs">Extra Small</button>
+              <button class="btn btn-sm">Small</button>
+              <button class="btn">Normal</button>
+              <button class="btn btn-lg">Large</button>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm font-semibold mb-2">States</p>
+            <div class="flex flex-wrap gap-2">
+              <button class="btn">Active</button>
+              <button class="btn" disabled>Disabled</button>
+              <button class="btn loading">Loading</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;button class="<span class="text-success font-semibold">btn</span>"&gt;Default&lt;/button&gt;
+&lt;button class="<span class="text-success font-semibold">btn btn-primary</span>"&gt;Primary&lt;/button&gt;
+&lt;button class="<span class="text-success font-semibold">btn btn-outline</span>"&gt;Outline&lt;/button&gt;
+&lt;button class="<span class="text-success font-semibold">btn btn-lg</span>"&gt;Large&lt;/button&gt;
+&lt;button class="<span class="text-success font-semibold">btn</span>" disabled&gt;Disabled&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Badges -->
+  <section id="badges" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">2. Badges</h2>
+        <p class="text-sm opacity-75 mb-4">Small labels for tagging and categorization</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-4 mb-4">
+          <div class="flex flex-wrap gap-2">
+            <span class="badge">Default</span>
+            <span class="badge badge-primary">Primary</span>
+            <span class="badge badge-secondary">Secondary</span>
+            <span class="badge badge-accent">Accent</span>
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-warning">Warning</span>
+            <span class="badge badge-error">Error</span>
+            <span class="badge badge-info">Info</span>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="badge badge-lg">Large</span>
+            <span class="badge badge-md">Medium</span>
+            <span class="badge badge-sm">Small</span>
+            <span class="badge badge-xs">Extra Small</span>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="badge gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              with icon
+            </span>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;span class="<span class="text-success font-semibold">badge</span>"&gt;Default&lt;/span&gt;
+&lt;span class="<span class="text-success font-semibold">badge badge-primary</span>"&gt;Primary&lt;/span&gt;
+&lt;span class="<span class="text-success font-semibold">badge badge-lg</span>"&gt;Large&lt;/span&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cards -->
+  <section id="cards" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">3. Cards</h2>
+        <p class="text-sm opacity-75 mb-4">Flexible containers for content grouping</p>
+
+        <!-- Live Examples -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div class="card bg-base-200">
+            <div class="card-body">
+              <h2 class="card-title">Card Title</h2>
+              <p>This is a basic card with title and content. Cards are great for organizing content into self-contained units.</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Action</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card image-full shadow-xl">
+            <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e5b60a9e601.jpg" alt="Album" /></figure>
+            <div class="card-body">
+              <h2 class="card-title">Image Card</h2>
+              <p>Cards can include images as backgrounds</p>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">Buy Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">card bg-base-200</span>"&gt;
+  &lt;div class="<span class="text-success font-semibold">card-body</span>"&gt;
+    &lt;h2 class="<span class="text-success font-semibold">card-title</span>"&gt;Title&lt;/h2&gt;
+    &lt;p&gt;Content&lt;/p&gt;
+    &lt;div class="<span class="text-success font-semibold">card-actions</span>"&gt;
+      &lt;button class="btn"&gt;Action&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alerts -->
+  <section id="alerts" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">4. Alerts</h2>
+        <p class="text-sm opacity-75 mb-4">Notification messages for important information</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-3 mb-4">
+          <div class="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Default alert with icon and text</span>
+          </div>
+
+          <div class="alert alert-info">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Info alert - use this for informational messages</span>
+          </div>
+
+          <div class="alert alert-success">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>Success alert - great for confirmations!</span>
+          </div>
+
+          <div class="alert alert-warning">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4v2m0 0H9m3 0h3" /></svg>
+            <span>Warning alert - use with caution</span>
+          </div>
+
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2" /></svg>
+            <span>Error alert - something went wrong</span>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">alert alert-info</span>"&gt;
+  &lt;svg ...&gt;&lt;/svg&gt;
+  &lt;span&gt;Info message&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="<span class="text-success font-semibold">alert alert-success</span>"&gt;
+  &lt;span&gt;Success message&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forms & Inputs -->
+  <section id="forms" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">5. Forms & Inputs</h2>
+        <p class="text-sm opacity-75 mb-4">Form controls with DaisyUI styling</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-4 mb-4">
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">What is your name?</span>
+            </label>
+            <input type="text" placeholder="Type here" class="input input-bordered w-full" />
+          </div>
+
+          <div class="form-control w-full">
+            <label class="label">
+              <span class="label-text">Pick a file</span>
+            </label>
+            <input type="file" class="file-input file-input-bordered w-full" />
+          </div>
+
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text">Remember me</span>
+              <input type="checkbox" class="checkbox checkbox-primary" />
+            </label>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Select an option</span>
+            </label>
+            <select class="select select-bordered">
+              <option disabled selected>Pick your favorite anime</option>
+              <option>Attack on Titan</option>
+              <option>Death Note</option>
+              <option>Demon Slayer</option>
+            </select>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Your feedback</span>
+            </label>
+            <textarea class="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Toggle switch</span>
+              <input type="checkbox" class="toggle" />
+            </label>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">form-control</span>"&gt;
+  &lt;label class="<span class="text-success font-semibold">label</span>"&gt;
+    &lt;span class="<span class="text-success font-semibold">label-text</span>"&gt;Label&lt;/span&gt;
+  &lt;/label&gt;
+  &lt;input type="text" class="<span class="text-success font-semibold">input input-bordered</span>" /&gt;
+&lt;/div&gt;
+
+&lt;input type="checkbox" class="<span class="text-success font-semibold">checkbox</span>" /&gt;
+&lt;input type="checkbox" class="<span class="text-success font-semibold">toggle</span>" /&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tables -->
+  <section id="tables" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">6. Tables</h2>
+        <p class="text-sm opacity-75 mb-4">Responsive table component</p>
+
+        <!-- Live Examples -->
+        <div class="overflow-x-auto mb-4">
+          <table class="table table-compact w-full">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Job</th>
+                <th>Favorite Color</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hover">
+                <th>1</th>
+                <td>Cy Ganderton</td>
+                <td>Quality Control Specialist</td>
+                <td>Blue</td>
+              </tr>
+              <tr class="hover">
+                <th>2</th>
+                <td>Hart Hagenes</td>
+                <td>Desktop Support Technician</td>
+                <td>Purple</td>
+              </tr>
+              <tr class="hover">
+                <th>3</th>
+                <td>Brice Swanson</td>
+                <td>Tax Accountant</td>
+                <td>Red</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;table class="<span class="text-success font-semibold">table table-compact</span>"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr class="<span class="text-success font-semibold">hover</span>"&gt;
+      &lt;th&gt;1&lt;/th&gt;
+      &lt;td&gt;Data&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <section id="modals" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">7. Modals</h2>
+        <p class="text-sm opacity-75 mb-4">Dialog boxes for important interactions</p>
+
+        <!-- Live Examples -->
+        <div class="mb-4">
+          <label for="modal-1" class="btn">Open Modal</label>
+        </div>
+
+        <input type="checkbox" id="modal-1" class="modal-toggle" />
+        <div class="modal">
+          <div class="modal-box">
+            <h3 class="font-bold text-lg">Hello!</h3>
+            <p class="py-4">Press ESC key or click the button below to close</p>
+            <div class="modal-action">
+              <label for="modal-1" class="btn">Close</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;input type="checkbox" id="modal-1" class="<span class="text-success font-semibold">modal-toggle</span>" /&gt;
+&lt;label for="modal-1" class="<span class="text-success font-semibold">btn</span>"&gt;Open&lt;/label&gt;
+
+&lt;div class="<span class="text-success font-semibold">modal</span>"&gt;
+  &lt;div class="<span class="text-success font-semibold">modal-box</span>"&gt;
+    &lt;h3 class="font-bold text-lg"&gt;Title&lt;/h3&gt;
+    &lt;p&gt;Content&lt;/p&gt;
+    &lt;div class="<span class="text-success font-semibold">modal-action</span>"&gt;
+      &lt;label for="modal-1" class="btn"&gt;Close&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dropdowns -->
+  <section id="dropdowns" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">8. Dropdowns</h2>
+        <p class="text-sm opacity-75 mb-4">Menu dropdowns and select options</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-4 mb-4">
+          <div class="dropdown">
+            <label tabindex="0" class="btn m-1">Click me</label>
+            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a>Item 1</a></li>
+              <li><a>Item 2</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown dropdown-right">
+            <label tabindex="0" class="btn m-1">Right Side</label>
+            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li><a>Item 1</a></li>
+              <li><a>Item 2</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">dropdown</span>"&gt;
+  &lt;label tabindex="0" class="<span class="text-success font-semibold">btn</span>"&gt;Click me&lt;/label&gt;
+  &lt;ul tabindex="0" class="<span class="text-success font-semibold">dropdown-content menu</span>"&gt;
+    &lt;li&gt;&lt;a&gt;Item 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a&gt;Item 2&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress & Loading -->
+  <section id="progress" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">9. Progress & Loading</h2>
+        <p class="text-sm opacity-75 mb-4">Visual feedback for loading states</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-4 mb-4">
+          <div>
+            <p class="text-sm font-semibold mb-2">Progress Bar</p>
+            <progress class="progress progress-primary w-full" value="45" max="100"></progress>
+            <progress class="progress progress-success w-full mt-2" value="70" max="100"></progress>
+          </div>
+
+          <div>
+            <p class="text-sm font-semibold mb-2">Loading Spinner</p>
+            <span class="loading loading-spinner loading-lg"></span>
+            <span class="loading loading-spinner loading-md"></span>
+            <span class="loading loading-spinner loading-sm"></span>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;progress class="<span class="text-success font-semibold">progress progress-primary</span>" value="45" max="100"&gt;&lt;/progress&gt;
+
+&lt;span class="<span class="text-success font-semibold">loading loading-spinner loading-lg</span>"&gt;&lt;/span&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <section id="pagination" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">10. Pagination</h2>
+        <p class="text-sm opacity-75 mb-4">Navigation for multiple pages</p>
+
+        <!-- Live Examples -->
+        <div class="mb-4">
+          <div class="join">
+            <button class="join-item btn">1</button>
+            <button class="join-item btn btn-active">2</button>
+            <button class="join-item btn">3</button>
+            <button class="join-item btn">4</button>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">join</span>"&gt;
+  &lt;button class="<span class="text-success font-semibold">join-item btn</span>"&gt;1&lt;/button&gt;
+  &lt;button class="<span class="text-success font-semibold">join-item btn btn-active</span>"&gt;2&lt;/button&gt;
+  &lt;button class="<span class="text-success font-semibold">join-item btn</span>"&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Drawers -->
+  <section id="drawers" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">11. Drawer / Sidebar</h2>
+        <p class="text-sm opacity-75 mb-4">Slide-out navigation panel</p>
+
+        <!-- Live Examples -->
+        <div class="drawer drawer-end mb-4">
+          <input id="drawer-demo" type="checkbox" class="drawer-toggle" />
+          <div class="drawer-content">
+            <label for="drawer-demo" class="btn btn-primary">Open Drawer</label>
+          </div>
+          <div class="drawer-side z-40">
+            <label for="drawer-demo" aria-label="close sidebar" class="drawer-overlay"></label>
+            <ul class="menu p-4 w-80 min-h-full bg-base-200">
+              <li><a>Sidebar Item 1</a></li>
+              <li><a>Sidebar Item 2</a></li>
+              <li><a>Sidebar Item 3</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">drawer drawer-end</span>"&gt;
+  &lt;input id="drawer" type="checkbox" class="<span class="text-success font-semibold">drawer-toggle</span>" /&gt;
+  &lt;div class="<span class="text-success font-semibold">drawer-content</span>"&gt;
+    &lt;label for="drawer" class="btn"&gt;Open&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="<span class="text-success font-semibold">drawer-side</span>"&gt;
+    &lt;ul class="<span class="text-success font-semibold">menu</span>"&gt;
+      &lt;li&gt;&lt;a&gt;Item&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tooltips -->
+  <section id="tooltips" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">12. Tooltips</h2>
+        <p class="text-sm opacity-75 mb-4">Helpful hints on hover</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-4 mb-4">
+          <div class="flex gap-4 flex-wrap">
+            <div class="tooltip" data-tip="Hello!">
+              <button class="btn">Hover me</button>
+            </div>
+            <div class="tooltip tooltip-right" data-tip="Tooltip on the right">
+              <button class="btn">Right</button>
+            </div>
+            <div class="tooltip tooltip-left" data-tip="Tooltip on the left">
+              <button class="btn">Left</button>
+            </div>
+            <div class="tooltip tooltip-bottom" data-tip="Tooltip on bottom">
+              <button class="btn">Bottom</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">tooltip</span>" data-tip="Hello!"&gt;
+  &lt;button class="btn"&gt;Hover me&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="<span class="text-success font-semibold">tooltip tooltip-right</span>" data-tip="Text"&gt;
+  &lt;button class="btn"&gt;Hover&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <section id="tabs" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">13. Tabs</h2>
+        <p class="text-sm opacity-75 mb-4">Tabbed content interface</p>
+
+        <!-- Live Examples -->
+        <div class="tabs tabs-bordered mb-4">
+          <input type="radio" name="my_tabs_1" class="tab" aria-label="Tab 1" />
+          <div class="tab-content p-10">Tab content 1</div>
+
+          <input type="radio" name="my_tabs_1" class="tab" aria-label="Tab 2" checked />
+          <div class="tab-content p-10">Tab content 2</div>
+
+          <input type="radio" name="my_tabs_1" class="tab" aria-label="Tab 3" />
+          <div class="tab-content p-10">Tab content 3</div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">tabs tabs-bordered</span>"&gt;
+  &lt;input type="radio" name="tabs" class="<span class="text-success font-semibold">tab</span>" aria-label="Tab 1" /&gt;
+  &lt;div class="<span class="text-success font-semibold">tab-content</span>"&gt;Content 1&lt;/div&gt;
+  
+  &lt;input type="radio" name="tabs" class="<span class="text-success font-semibold">tab</span>" aria-label="Tab 2" checked /&gt;
+  &lt;div class="<span class="text-success font-semibold">tab-content</span>"&gt;Content 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section id="stats" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">14. Stats</h2>
+        <p class="text-sm opacity-75 mb-4">Display statistics and metrics</p>
+
+        <!-- Live Examples -->
+        <div class="stats stats-vertical md:stats-horizontal shadow w-full mb-4">
+          <div class="stat">
+            <div class="stat-title">Downloads</div>
+            <div class="stat-value text-primary">31K</div>
+            <div class="stat-desc">Jan 1st - Feb 1st</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-title">Users</div>
+            <div class="stat-value text-secondary">4,200</div>
+            <div class="stat-desc">↗︎ 400 (22%)</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-title">New Registers</div>
+            <div class="stat-value text-accent">1,200</div>
+            <div class="stat-desc">↘︎ 90 (14%)</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">stats stats-vertical</span>"&gt;
+  &lt;div class="<span class="text-success font-semibold">stat</span>"&gt;
+    &lt;div class="<span class="text-success font-semibold">stat-title</span>"&gt;Title&lt;/div&gt;
+    &lt;div class="<span class="text-success font-semibold">stat-value</span>"&gt;1.2M&lt;/div&gt;
+    &lt;div class="<span class="text-success font-semibold">stat-desc</span>"&gt;Description&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg bg-gradient-to-br from-success/10 to-info/10">
+      <div class="card-body">
+        <h2 class="card-title">🎯 Best Practices</h2>
+        
+        <ul class="space-y-3 mt-4">
+          <li class="flex gap-3">
+            <span class="text-xl">💡</span>
+            <div>
+              <p class="font-semibold">Combine Classes</p>
+              <p class="text-sm opacity-75">Mix color, size, and state classes: <code class="bg-base-200 px-2 py-1 rounded">btn btn-primary btn-lg</code></p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-xl">🎨</span>
+            <div>
+              <p class="font-semibold">Use Color Utilities</p>
+              <p class="text-sm opacity-75">Apply colors consistently: <code class="bg-base-200 px-2 py-1 rounded">text-primary, bg-secondary, border-accent</code></p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-xl">📱</span>
+            <div>
+              <p class="font-semibold">Responsive Design</p>
+              <p class="text-sm opacity-75">Use responsive variants: <code class="bg-base-200 px-2 py-1 rounded">grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3</code></p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-xl">♿</span>
+            <div>
+              <p class="font-semibold">Accessibility</p>
+              <p class="text-sm opacity-75">DaisyUI components are accessible by default - add proper labels and ARIA attributes</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

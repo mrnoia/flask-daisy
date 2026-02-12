@@ -1,0 +1,230 @@
+<section class="card bg-base-100 shadow-lg">
+  <div class="card-body">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="card-title">Products List</h2>
+      <button class="btn btn-primary btn-sm" onclick="createModal.showModal()">
+        <span>➕</span> New Product
+      </button>
+    </div>
+
+    <!-- Table -->
+    <div class="overflow-x-auto">
+      <table class="table table-zebra">
+        <!-- Head -->
+        <thead>
+          <tr>
+            <th>
+              <label>
+                <input type="checkbox" class="checkbox" />
+              </label>
+            </th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1 -->
+          <tr>
+            <th>
+              <label>
+                <input type="checkbox" class="checkbox" />
+              </label>
+            </th>
+            <td>
+              <div class="flex items-center gap-3">
+                <div class="avatar">
+                  <div class="mask mask-squircle w-12 h-12">
+                    <img src="https://img.daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar" />
+                  </div>
+                </div>
+                <div>
+                  <div class="font-bold">Wireless Headphones</div>
+                  <div class="text-sm opacity-50">SKU: WH-001</div>
+                </div>
+              </div>
+            </td>
+            <td>Electronics</td>
+            <td>$129.99</td>
+            <td>
+              <div class="badge badge-outline">45</div>
+            </td>
+            <td>
+              <div class="badge badge-success gap-2">
+                <span class="inline-block w-2 h-2 bg-success rounded-full"></span>
+                Active
+              </div>
+            </td>
+            <td>2024-01-15</td>
+            <td>
+              <div class="dropdown">
+                <button tabindex="0" class="btn btn-ghost btn-xs">⋮</button>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                  <li><a onclick="editModal.showModal()">Edit</a></li>
+                  <li><a>View Details</a></li>
+                  <li><a onclick="deleteModal.showModal()">Delete</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Row 2 -->
+          <tr>
+            <th>
+              <label>
+                <input type="checkbox" class="checkbox" />
+              </label>
+            </th>
+            <td>
+              <div class="flex items-center gap-3">
+                <div class="avatar">
+                  <div class="mask mask-squircle w-12 h-12">
+                    <img src="https://img.daisyui.com/tailwind-css-component-profile-3@56w.png" alt="Avatar" />
+                  </div>
+                </div>
+                <div>
+                  <div class="font-bold">USB-C Cable</div>
+                  <div class="text-sm opacity-50">SKU: USB-002</div>
+                </div>
+              </div>
+            </td>
+            <td>Accessories</td>
+            <td>$19.99</td>
+            <td>
+              <div class="badge badge-outline">120</div>
+            </td>
+            <td>
+              <div class="badge badge-success gap-2">
+                <span class="inline-block w-2 h-2 bg-success rounded-full"></span>
+                Active
+              </div>
+            </td>
+            <td>2024-01-10</td>
+            <td>
+              <div class="dropdown">
+                <button tabindex="0" class="btn btn-ghost btn-xs">⋮</button>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                  <li><a onclick="editModal.showModal()">Edit</a></li>
+                  <li><a>View Details</a></li>
+                  <li><a onclick="deleteModal.showModal()">Delete</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Row 3 -->
+          <tr>
+            <th>
+              <label>
+                <input type="checkbox" class="checkbox" />
+              </label>
+            </th>
+            <td>
+              <div class="flex items-center gap-3">
+                <div class="avatar">
+                  <div class="mask mask-squircle w-12 h-12">
+                    <img src="https://img.daisyui.com/tailwind-css-component-profile-4@56w.png" alt="Avatar" />
+                  </div>
+                </div>
+                <div>
+                  <div class="font-bold">Laptop Stand</div>
+                  <div class="text-sm opacity-50">SKU: LS-003</div>
+                </div>
+              </div>
+            </td>
+            <td>Office Equipment</td>
+            <td>$49.99</td>
+            <td>
+              <div class="badge badge-warning">5</div>
+            </td>
+            <td>
+              <div class="badge badge-warning gap-2">
+                <span class="inline-block w-2 h-2 bg-warning rounded-full"></span>
+                Low Stock
+              </div>
+            </td>
+            <td>2024-01-05</td>
+            <td>
+              <div class="dropdown">
+                <button tabindex="0" class="btn btn-ghost btn-xs">⋮</button>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                  <li><a onclick="editModal.showModal()">Edit</a></li>
+                  <li><a>View Details</a></li>
+                  <li><a onclick="deleteModal.showModal()">Delete</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Row 4 -->
+          <tr>
+            <th>
+              <label>
+                <input type="checkbox" class="checkbox" />
+              </label>
+            </th>
+            <td>
+              <div class="flex items-center gap-3">
+                <div class="avatar">
+                  <div class="mask mask-squircle w-12 h-12">
+                    <img src="https://img.daisyui.com/tailwind-css-component-profile-5@56w.png" alt="Avatar" />
+                  </div>
+                </div>
+                <div>
+                  <div class="font-bold">Mechanical Keyboard</div>
+                  <div class="text-sm opacity-50">SKU: MK-004</div>
+                </div>
+              </div>
+            </td>
+            <td>Peripherals</td>
+            <td>$149.99</td>
+            <td>
+              <div class="badge badge-error">0</div>
+            </td>
+            <td>
+              <div class="badge badge-error gap-2">
+                <span class="inline-block w-2 h-2 bg-error rounded-full"></span>
+                Out of Stock
+              </div>
+            </td>
+            <td>2023-12-28</td>
+            <td>
+              <div class="dropdown">
+                <button tabindex="0" class="btn btn-ghost btn-xs">⋮</button>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                  <li><a onclick="editModal.showModal()">Edit</a></li>
+                  <li><a>View Details</a></li>
+                  <li><a onclick="deleteModal.showModal()">Delete</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-between items-center mt-6">
+      <div class="text-sm opacity-75">
+        Showing page <span class="font-semibold">1</span> of <span class="font-semibold">5</span>
+      </div>
+      <div class="join">
+        <button class="join-item btn">«</button>
+        <button class="join-item btn btn-active">1</button>
+        <button class="join-item btn">2</button>
+        <button class="join-item btn">3</button>
+        <button class="join-item btn">4</button>
+        <button class="join-item btn">»</button>
+      </div>
+      <select class="select select-bordered select-sm w-20">
+        <option>10</option>
+        <option>25</option>
+        <option>50</option>
+      </select>
+    </div>
+  </div>
+</section>

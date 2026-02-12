@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+
+{% block title %}Products Management - Flask Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-6 space-y-8">
+  <!-- Page Header -->
+  <section class="space-y-2">
+    <h1 class="text-4xl font-bold">Products</h1>
+    <p class="text-lg opacity-75">Manage your product inventory and catalog</p>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="space-y-4">
+    <div class="stats stats-vertical md:stats-horizontal shadow w-full">
+      <div class="stat">
+        <div class="stat-title">Total Products</div>
+        <div class="stat-value text-primary">24</div>
+        <div class="stat-desc">In stock</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-title">Low Stock Items</div>
+        <div class="stat-value text-warning">5</div>
+        <div class="stat-desc">Below threshold</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-title">Total Value</div>
+        <div class="stat-value text-secondary">$12,450</div>
+        <div class="stat-desc">Inventory value</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-title">Categories</div>
+        <div class="stat-value text-accent">8</div>
+        <div class="stat-desc">Active categories</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search & Filters Section -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">Search & Filter</h2>
+        
+        <div class="space-y-4">
+          <!-- Search Bar -->
+          <div class="form-control">
+            <input type="text" placeholder="Search products by name or SKU..." class="input input-bordered w-full" />
+          </div>
+
+          <!-- Filter Row -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Category</span>
+              </label>
+              <select class="select select-bordered">
+                <option>All Categories</option>
+                <option>Electronics</option>
+                <option>Clothing</option>
+                <option>Books</option>
+                <option>Home & Garden</option>
+              </select>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Stock Status</span>
+              </label>
+              <select class="select select-bordered">
+                <option>All Items</option>
+                <option>In Stock</option>
+                <option>Low Stock</option>
+                <option>Out of Stock</option>
+              </select>
+            </div>
+
+            <div class="form-control">
+              <label class="label">
+                <span class="label-text">Price Range</span>
+              </label>
+              <select class="select select-bordered">
+                <option>All Prices</option>
+                <option>Under $50</option>
+                <option>$50 - $100</option>
+                <option>$100 - $500</option>
+                <option>Over $500</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex gap-2 flex-wrap">
+            <button class="btn btn-primary">Apply Filters</button>
+            <button class="btn btn-outline">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Table Section -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="card-title">Product List</h2>
+          <button class="btn btn-primary btn-sm">+ Add Product</button>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+          <table class="table table-zebra w-full">
+            <thead>
+              <tr>
+                <th>
+                  <label>
+                    <input type="checkbox" class="checkbox" />
+                  </label>
+                </th>
+                <th>Product Name</th>
+                <th>SKU</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Product Row 1 -->
+              <tr>
+                <th>
+                  <label>
+                    <input type="checkbox" class="checkbox" />
+                  </label>
+                </th>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="avatar placeholder">
+                      <div class="bg-primary text-primary-content rounded w-8">
+                        <span class="text-sm">A</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="font-bold">Wireless Headphones</div>
+                      <div class="text-sm opacity-50">Premium audio</div>
+                    </div>
+                  </div>
+                </td>
+                <td>WH-001</td>
+                <td>Electronics</td>
+                <td>$129.99</td>
+                <td>45</td>
+                <td><span class="badge badge-success">In Stock</span></td>
+                <td>
+                  <div class="dropdown dropdown-end">
+                    <label tabindex="0" class="btn btn-ghost btn-xs">Actions</label>
+                    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                      <li><a>Edit</a></li>
+                      <li><a>View Details</a></li>
+                      <li><a>Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Product Row 2 -->
+              <tr>
+                <th>
+                  <label>
+                    <input type="checkbox" class="checkbox" />
+                  </label>
+                </th>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="avatar placeholder">
+                      <div class="bg-secondary text-secondary-content rounded w-8">
+                        <span class="text-sm">U</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="font-bold">USB-C Cable</div>
+                      <div class="text-sm opacity-50">2 meters</div>
+                    </div>
+                  </div>
+                </td>
+                <td>USB-C-2M</td>
+                <td>Electronics</td>
+                <td>$19.99</td>
+                <td>12</td>
+                <td><span class="badge badge-warning">Low Stock</span></td>
+                <td>
+                  <div class="dropdown dropdown-end">
+                    <label tabindex="0" class="btn btn-ghost btn-xs">Actions</label>
+                    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                      <li><a>Edit</a></li>
+                      <li><a>View Details</a></li>
+                      <li><a>Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Product Row 3 -->
+              <tr>
+                <th>
+                  <label>
+                    <input type="checkbox" class="checkbox" />
+                  </label>
+                </th>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="avatar placeholder">
+                      <div class="bg-accent text-accent-content rounded w-8">
+                        <span class="text-sm">T</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="font-bold">T-Shirt</div>
+                      <div class="text-sm opacity-50">100% Cotton</div>
+                    </div>
+                  </div>
+                </td>
+                <td>TSH-001</td>
+                <td>Clothing</td>
+                <td>$24.99</td>
+                <td>0</td>
+                <td><span class="badge badge-error">Out of Stock</span></td>
+                <td>
+                  <div class="dropdown dropdown-end">
+                    <label tabindex="0" class="btn btn-ghost btn-xs">Actions</label>
+                    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                      <li><a>Edit</a></li>
+                      <li><a>View Details</a></li>
+                      <li><a>Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Bulk Actions -->
+        <div class="mt-4 flex gap-2 items-center">
+          <span class="text-sm opacity-75">3 items selected</span>
+          <button class="btn btn-sm btn-error">Delete Selected</button>
+          <button class="btn btn-sm btn-outline">Export Selected</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <section class="space-y-4">
+    <div class="flex justify-center">
+      <div class="join">
+        <button class="join-item btn">«</button>
+        <button class="join-item btn">1</button>
+        <button class="join-item btn btn-active">2</button>
+        <button class="join-item btn">3</button>
+        <button class="join-item btn">»</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Empty State (shown when no products) -->
+  <section class="space-y-4 hidden">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body text-center py-12">
+        <div class="text-6xl mb-4">📦</div>
+        <h3 class="text-2xl font-bold mb-2">No Products Found</h3>
+        <p class="opacity-75 mb-4">Start by adding your first product to the catalog</p>
+        <button class="btn btn-primary">Add Your First Product</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

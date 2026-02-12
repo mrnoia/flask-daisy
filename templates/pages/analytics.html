@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block title %}Analytics Dashboard - Flask Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-6 space-y-8">
+  <!-- Page Header -->
+  <section class="space-y-2">
+    <h1 class="text-4xl font-bold">📊 Analytics Dashboard</h1>
+    <p class="text-lg opacity-75">Real-time insights powered by DuckDB</p>
+  </section>
+
+  <!-- Key Statistics Cards -->
+  <section class="space-y-4">
+    <h2 class="text-2xl font-bold">Overview</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <!-- Total Products -->
+      <div class="card bg-gradient-to-br from-primary/10 to-primary/5 shadow-lg">
+        <div class="card-body items-center text-center">
+          <div class="text-5xl font-bold text-primary">{{ stats.total_products }}</div>
+          <p class="text-sm opacity-75 mt-2">Total Products</p>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="card bg-gradient-to-br from-secondary/10 to-secondary/5 shadow-lg">
+        <div class="card-body items-center text-center">
+          <div class="text-5xl font-bold text-secondary">{{ stats.total_categories }}</div>
+          <p class="text-sm opacity-75 mt-2">Categories</p>
+        </div>
+      </div>
+
+      <!-- Average Price -->
+      <div class="card bg-gradient-to-br from-accent/10 to-accent/5 shadow-lg">
+        <div class="card-body items-center text-center">
+          <div class="text-5xl font-bold text-accent">${{ "%.2f"|format(stats.avg_price) }}</div>
+          <p class="text-sm opacity-75 mt-2">Average Price</p>
+        </div>
+      </div>
+
+      <!-- Total Stock -->
+      <div class="card bg-gradient-to-br from-success/10 to-success/5 shadow-lg">
+        <div class="card-body items-center text-center">
+          <div class="text-5xl font-bold text-success">{{ stats.total_stock }}</div>
+          <p class="text-sm opacity-75 mt-2">Total Stock</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Analysis -->
+  <section class="space-y-4">
+    <h2 class="text-2xl font-bold">Category Analysis</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {% for category in categories %}
+        <div class="card bg-base-100 shadow-lg hover:shadow-xl transition">
+          <div class="card-body">
+            <h3 class="card-title text-lg">{{ category.category }}</h3>
+            <div class="divider my-2"></div>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="opacity-75">Products</span>
+                <span class="badge badge-primary badge-lg">{{ category.product_count }}</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="opacity-75">Avg Price</span>
+                <span class="font-mono font-bold">${{ "%.2f"|format(category.avg_price) }}</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="opacity-75">Price Range</span>
+                <span class="text-sm">${{ "%.2f"|format(category.min_price) }} - ${{ "%.2f"|format(category.max_price) }}</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="opacity-75">Total Stock</span>
+                <span class="badge badge-success badge-lg">{{ category.total_stock }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Price Distribution -->
+  <section class="space-y-4">
+    <h2 class="text-2xl font-bold">Price Distribution</h2>
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {% for range in price_distribution %}
+            <div class="border-l-4 border-primary p-4 rounded bg-base-200">
+              <p class="font-bold text-lg">{{ range.price_range }}</p>
+              <div class="space-y-1 text-sm mt-2">
+                <p><span class="opacity-75">Products:</span> <span class="font-semibold badge badge-outline">{{ range.count }}</span></p>
+                <p><span class="opacity-75">Average Price:</span> <span class="font-mono font-semibold">${{ "%.2f"|format(range.avg_price) }}</span></p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stock Distribution -->
+  <section class="space-y-4">
+    <h2 class="text-2xl font-bold">Stock Level Distribution</h2>
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="space-y-3">
+          {% for level in stock_distribution %}
+            <div class="flex items-center justify-between p-4 bg-base-200 rounded">
+              <div>
+                <p class="font-semibold">{{ level.stock_level }}</p>
+                <p class="text-sm opacity-75">Average Price: ${{ "%.2f"|format(level.avg_price) }}</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-32 bg-base-300 rounded-full h-2">
+                  <div 
+                    class="bg-primary h-2 rounded-full" 
+                    style="width: {{ (level.count / 5) * 100 }}%"
+                  ></div>
+                </div>
+                <span class="font-bold text-lg min-w-max">{{ level.count }}</span>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Products by Inventory Value -->
+  <section class="space-y-4">
+    <h2 class="text-2xl font-bold">Top Products by Inventory Value</h2>
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="overflow-x-auto">
+          <table class="table table-zebra w-full">
+            <thead>
+              <tr class="bg-base-200">
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Inventory Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for product in top_products %}
+                <tr class="hover">
+                  <td class="font-semibold">{{ product.product_name }}</td>
+                  <td>
+                    <span class="badge badge-outline">{{ product.category }}</span>
+                  </td>
+                  <td class="font-mono">${{ "%.2f"|format(product.price) }}</td>
+                  <td class="font-mono">{{ product.stock }}</td>
+                  <td class="font-mono font-bold text-success">${{ "%.2f"|format(product.inventory_value) }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-info mt-4">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <strong>Inventory Value</strong> = Product Price × Stock Quantity
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Source Info -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg bg-gradient-to-br from-info/10 to-info/5">
+      <div class="card-body">
+        <h2 class="card-title">About This Dashboard</h2>
+        <p class="opacity-75 mt-3">
+          This analytics dashboard demonstrates how to build data-driven pages using:
+        </p>
+        <ul class="list-disc list-inside space-y-2 mt-3 text-sm">
+          <li><strong>DuckDB:</strong> Efficient SQL queries on Parquet data files</li>
+          <li><strong>Pandas:</strong> Data transformation and file handling</li>
+          <li><strong>Flask:</strong> Backend route handling and data passing</li>
+          <li><strong>Jinja2:</strong> Template rendering with dynamic data</li>
+          <li><strong>DaisyUI:</strong> Beautiful responsive components</li>
+        </ul>
+        
+        <div class="mt-4 p-3 bg-base-200 rounded text-sm opacity-75">
+          <p><strong>Data Location:</strong> <code>data/products.parquet</code></p>
+          <p><strong>Data Service:</strong> <code>data_service.py</code></p>
+          <p><strong>Route:</strong> <code>@app.get("/analytics")</code></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

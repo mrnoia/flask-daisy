@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Tutorial: Layout & Grid - Flask Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-6 space-y-8">
+  <!-- Page Header -->
+  <section class="space-y-2">
+    <h1 class="text-4xl font-bold">Tutorial: Layout & Grid Positioning</h1>
+    <p class="text-lg opacity-75">Learn how to use Tailwind CSS and DaisyUI for responsive layouts, grids, and positioning</p>
+  </section>
+
+  <!-- Table of Contents -->
+  {% include 'partials/_tutorial_toc.html' %}
+
+  <!-- Section 1: Container & Sizing -->
+  {% include 'partials/_tutorial_container_sizing.html' %}
+
+  <!-- Section 2: Flexbox Layouts -->
+  {% include 'partials/_tutorial_flexbox.html' %}
+
+  <!-- Section 3: Grid Layouts -->
+  {% include 'partials/_tutorial_grid.html' %}
+
+  <!-- Section 4: Responsive Design -->
+  {% include 'partials/_tutorial_responsive.html' %}
+
+  <!-- Section 5: Spacing & Padding -->
+  {% include 'partials/_tutorial_spacing.html' %}
+
+  <!-- Section 6: Positioning -->
+  {% include 'partials/_tutorial_positioning.html' %}
+
+  <!-- Section 7: Advanced Layouts -->
+  {% include 'partials/_tutorial_advanced_layouts.html' %}
+
+</div>
+{% endblock %}

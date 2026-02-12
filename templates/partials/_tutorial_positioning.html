@@ -1,0 +1,165 @@
+<section id="positioning" class="space-y-4">
+  <div class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h2 class="card-title">6. Positioning</h2>
+      <p class="text-sm opacity-75 mb-4">Control element positioning with absolute, relative, fixed, and sticky</p>
+
+      <!-- Relative Positioning -->
+      <div class="space-y-4">
+        <h3 class="font-semibold">Relative Positioning</h3>
+        <p class="text-sm opacity-75">Position relative to normal flow</p>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300 h-40">
+          <div class="relative h-full bg-primary bg-opacity-20 rounded">
+            <p class="p-2 text-sm">Container (relative)</p>
+            <div class="absolute top-4 right-4 bg-primary text-primary-content p-2 rounded text-sm">
+              Positioned absolutely inside
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">relative</span>"&gt;
+  &lt;div class="<span class="text-success font-semibold">absolute top-4 right-4</span>"&gt;
+    Positioned element
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <strong>Position utilities:</strong> <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code>, <code>static</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Absolute Positioning -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Absolute Positioning</h3>
+        <p class="text-sm opacity-75">Position outside normal flow, relative to nearest positioned parent</p>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="relative h-48 bg-base-100 rounded border-2 border-base-300">
+            <p class="p-2 text-sm font-semibold">Positioned Container</p>
+            
+            <!-- Top-left -->
+            <div class="absolute top-2 left-2 bg-primary text-primary-content px-2 py-1 rounded text-xs">
+              top-2 left-2
+            </div>
+            
+            <!-- Top-right -->
+            <div class="absolute top-2 right-2 bg-secondary text-secondary-content px-2 py-1 rounded text-xs">
+              top-2 right-2
+            </div>
+            
+            <!-- Bottom-left -->
+            <div class="absolute bottom-2 left-2 bg-accent text-accent-content px-2 py-1 rounded text-xs">
+              bottom-2 left-2
+            </div>
+            
+            <!-- Bottom-right -->
+            <div class="absolute bottom-2 right-2 bg-success text-success-content px-2 py-1 rounded text-xs">
+              bottom-2 right-2
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">relative</span>"&gt;
+  &lt;div class="<span class="text-success font-semibold">absolute top-0 right-0</span>"&gt;
+    Top-right corner
+  &lt;/div&gt;
+  &lt;div class="<span class="text-success font-semibold">absolute bottom-0 left-0</span>"&gt;
+    Bottom-left corner
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Fixed Positioning -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Fixed Positioning</h3>
+        <p class="text-sm opacity-75">Fixed to viewport (stays in place while scrolling)</p>
+        
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">fixed bottom-4 right-4 z-50</span>"&gt;
+  &lt;button class="btn btn-primary btn-circle"&gt;↑&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="alert alert-warning">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4v2m0 4v2M4.22 4.22a9 9 0 0112.73 0M4.22 19.78a9 9 0 0112.73 0" /></svg>
+          <div>
+            <strong>Note:</strong> Fixed elements are removed from normal flow. Use <code>z-50</code> or higher to ensure they appear above other content.
+          </div>
+        </div>
+      </div>
+
+      <!-- Sticky Positioning -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Sticky Positioning</h3>
+        <p class="text-sm opacity-75">Sticks to viewport when scrolling within parent</p>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300 h-48 overflow-y-auto">
+          <div class="sticky top-0 bg-primary text-primary-content p-2 rounded mb-2">
+            Sticky Header (sticks when scrolling)
+          </div>
+          <div class="space-y-2">
+            <div class="bg-base-100 p-2 rounded">Content item 1</div>
+            <div class="bg-base-100 p-2 rounded">Content item 2</div>
+            <div class="bg-base-100 p-2 rounded">Content item 3</div>
+            <div class="bg-base-100 p-2 rounded">Content item 4</div>
+            <div class="bg-base-100 p-2 rounded">Content item 5</div>
+            <div class="bg-base-100 p-2 rounded">Content item 6</div>
+            <div class="bg-base-100 p-2 rounded">Content item 7</div>
+            <div class="bg-base-100 p-2 rounded">Content item 8</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">sticky top-0</span>"&gt;
+  Header that sticks while scrolling
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Z-index -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Z-Index (Layering)</h3>
+        <p class="text-sm opacity-75">Control stacking order of positioned elements</p>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300 h-48 relative">
+          <div class="absolute top-4 left-4 w-24 h-24 bg-primary text-primary-content rounded flex items-center justify-center z-10">
+            z-10 (front)
+          </div>
+          <div class="absolute top-10 left-16 w-24 h-24 bg-secondary text-secondary-content rounded flex items-center justify-center z-20">
+            z-20 (higher)
+          </div>
+          <div class="absolute top-16 left-8 w-24 h-24 bg-accent text-accent-content rounded flex items-center justify-center z-30">
+            z-30 (highest)
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">absolute z-10</span>"&gt;Behind&lt;/div&gt;
+&lt;div class="<span class="text-success font-semibold">absolute z-20</span>"&gt;Middle&lt;/div&gt;
+&lt;div class="<span class="text-success font-semibold">absolute z-30</span>"&gt;Front&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

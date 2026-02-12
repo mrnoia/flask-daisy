@@ -1,0 +1,360 @@
+{% extends 'base.html' %}
+
+{% block title %}Typography Tutorial - Theme-aware Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-6 space-y-8">
+  <!-- Page Header -->
+  <section class="space-y-2">
+    <h1 class="text-4xl font-bold">Typography & Text Styling</h1>
+    <p class="text-lg opacity-75">Master text sizing, weights, colors, and formatting with Tailwind CSS and DaisyUI</p>
+  </section>
+
+  <!-- Heading Sizes -->
+  <section id="headings" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">1. Heading Sizes</h2>
+        <p class="text-sm opacity-75 mb-4">Use semantic HTML heading tags with text size utilities</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-3 mb-4">
+          <h1 class="text-6xl font-bold">Heading 1 (h1) - text-6xl</h1>
+          <h2 class="text-5xl font-bold">Heading 2 (h2) - text-5xl</h2>
+          <h3 class="text-4xl font-bold">Heading 3 (h3) - text-4xl</h3>
+          <h4 class="text-3xl font-bold">Heading 4 (h4) - text-3xl</h4>
+          <h5 class="text-2xl font-bold">Heading 5 (h5) - text-2xl</h5>
+          <h6 class="text-xl font-bold">Heading 6 (h6) - text-xl</h6>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;h1 class="<span class="text-success font-semibold">text-6xl font-bold</span>"&gt;Heading 1&lt;/h1&gt;
+&lt;h2 class="<span class="text-success font-semibold">text-5xl font-bold</span>"&gt;Heading 2&lt;/h2&gt;
+&lt;h3 class="<span class="text-success font-semibold">text-4xl font-bold</span>"&gt;Heading 3&lt;/h3&gt;</code></pre>
+        </div>
+
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <strong>Available sizes:</strong> <code>text-xs</code>, <code>text-sm</code>, <code>text-base</code>, <code>text-lg</code>, <code>text-xl</code>, <code>text-2xl</code> ... <code>text-9xl</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Font Weights -->
+  <section id="font-weights" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">2. Font Weights</h2>
+        <p class="text-sm opacity-75 mb-4">Control text boldness and hierarchy</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-2 mb-4">
+          <p class="font-thin text-lg">Thin (font-thin) - Lorem ipsum dolor sit amet</p>
+          <p class="font-extralight text-lg">Extra Light (font-extralight) - Lorem ipsum dolor sit amet</p>
+          <p class="font-light text-lg">Light (font-light) - Lorem ipsum dolor sit amet</p>
+          <p class="font-normal text-lg">Normal (font-normal) - Lorem ipsum dolor sit amet</p>
+          <p class="font-medium text-lg">Medium (font-medium) - Lorem ipsum dolor sit amet</p>
+          <p class="font-semibold text-lg">Semibold (font-semibold) - Lorem ipsum dolor sit amet</p>
+          <p class="font-bold text-lg">Bold (font-bold) - Lorem ipsum dolor sit amet</p>
+          <p class="font-extrabold text-lg">Extra Bold (font-extrabold) - Lorem ipsum dolor sit amet</p>
+          <p class="font-black text-lg">Black (font-black) - Lorem ipsum dolor sit amet</p>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;p class="<span class="text-success font-semibold">font-thin</span>"&gt;Thin text&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">font-bold</span>"&gt;Bold text&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">font-black</span>"&gt;Black text&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Text Colors -->
+  <section id="text-colors" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">3. Text Colors</h2>
+        <p class="text-sm opacity-75 mb-4">Use DaisyUI color utilities for text</p>
+
+        <!-- Live Examples -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div class="space-y-2">
+            <p class="text-primary">Primary text color</p>
+            <p class="text-secondary">Secondary text color</p>
+            <p class="text-accent">Accent text color</p>
+            <p class="text-success">Success text color</p>
+            <p class="text-warning">Warning text color</p>
+            <p class="text-error">Error text color</p>
+            <p class="text-info">Info text color</p>
+          </div>
+          <div class="space-y-2">
+            <p class="text-primary text-opacity-75">Primary with opacity-75</p>
+            <p class="text-secondary text-opacity-50">Secondary with opacity-50</p>
+            <p class="text-accent text-opacity-25">Accent with opacity-25</p>
+            <p class="opacity-75">Neutral with opacity-75</p>
+            <p class="opacity-50">Neutral with opacity-50</p>
+            <p class="opacity-25">Neutral with opacity-25</p>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;p class="<span class="text-success font-semibold">text-primary</span>"&gt;Primary text&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">text-secondary</span>"&gt;Secondary text&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">text-primary text-opacity-75</span>"&gt;
+  Primary with opacity
+&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Text Alignment -->
+  <section id="text-alignment" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">4. Text Alignment</h2>
+        <p class="text-sm opacity-75 mb-4">Control how text is aligned</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-4 mb-4">
+          <div class="bg-base-200 p-4 rounded-lg">
+            <p class="text-left">Left aligned text (text-left) - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="bg-base-200 p-4 rounded-lg">
+            <p class="text-center">Center aligned text (text-center) - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="bg-base-200 p-4 rounded-lg">
+            <p class="text-right">Right aligned text (text-right) - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="bg-base-200 p-4 rounded-lg">
+            <p class="text-justify">Justified text (text-justify) - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;p class="<span class="text-success font-semibold">text-left</span>"&gt;Left aligned&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">text-center</span>"&gt;Center aligned&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">text-right</span>"&gt;Right aligned&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">text-justify</span>"&gt;Justified&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Text Transform -->
+  <section id="text-transform" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">5. Text Transform</h2>
+        <p class="text-sm opacity-75 mb-4">Change text case without modifying HTML</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-3 mb-4">
+          <p class="uppercase">Uppercase text (uppercase)</p>
+          <p class="lowercase">LOWERCASE TEXT (lowercase)</p>
+          <p class="capitalize">capitalize each word (capitalize)</p>
+          <p class="normal-case">NoRmAl CaSe TeXt (normal-case)</p>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;p class="<span class="text-success font-semibold">uppercase</span>"&gt;Uppercase text&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">lowercase</span>"&gt;LOWERCASE TEXT&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">capitalize</span>"&gt;capitalize each word&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Line Height -->
+  <section id="line-height" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">6. Line Height & Spacing</h2>
+        <p class="text-sm opacity-75 mb-4">Control spacing between lines and letters</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-4 mb-4">
+          <div>
+            <p class="text-sm opacity-75 mb-2">leading-3 (line-height: .75rem)</p>
+            <p class="leading-3 bg-base-200 p-3 rounded">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm opacity-75 mb-2">leading-7 (line-height: 1.75rem)</p>
+            <p class="leading-7 bg-base-200 p-3 rounded">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm opacity-75 mb-2">leading-10 (line-height: 2.5rem)</p>
+            <p class="leading-10 bg-base-200 p-3 rounded">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+        </div>
+
+        <!-- Letter Spacing -->
+        <div class="divider"></div>
+        <div class="space-y-4 mb-4">
+          <p class="text-sm font-semibold">Letter Spacing</p>
+          <p class="tracking-tighter bg-base-200 p-3 rounded">Tighter letter spacing (tracking-tighter)</p>
+          <p class="tracking-normal bg-base-200 p-3 rounded">Normal letter spacing (tracking-normal)</p>
+          <p class="tracking-wide bg-base-200 p-3 rounded">Wide letter spacing (tracking-wide)</p>
+          <p class="tracking-widest bg-base-200 p-3 rounded">Widest letter spacing (tracking-widest)</p>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;p class="<span class="text-success font-semibold">leading-7</span>"&gt;
+  Relaxed line height text
+&lt;/p&gt;
+
+&lt;p class="<span class="text-success font-semibold">tracking-wide</span>"&gt;
+  Wide letter spacing text
+&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Truncation & Overflow -->
+  <section id="overflow" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">7. Text Truncation & Overflow</h2>
+        <p class="text-sm opacity-75 mb-4">Handle long text gracefully</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-4 mb-4">
+          <div>
+            <p class="text-sm opacity-75 mb-2">Truncate (truncate)</p>
+            <p class="truncate bg-base-200 p-3 rounded">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm opacity-75 mb-2">Line Clamp 2 (line-clamp-2)</p>
+            <p class="line-clamp-2 bg-base-200 p-3 rounded">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div>
+            <p class="text-sm opacity-75 mb-2">Line Clamp 3 (line-clamp-3)</p>
+            <p class="line-clamp-3 bg-base-200 p-3 rounded">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;p class="<span class="text-success font-semibold">truncate</span>"&gt;
+  Long text gets cut off with ellipsis...
+&lt;/p&gt;
+
+&lt;p class="<span class="text-success font-semibold">line-clamp-2</span>"&gt;
+  Text clamps to 2 lines with ellipsis...
+&lt;/p&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Text Decoration -->
+  <section id="decoration" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">8. Text Decoration</h2>
+        <p class="text-sm opacity-75 mb-4">Add underlines, line-throughs, and other decorations</p>
+
+        <!-- Live Examples -->
+        <div class="space-y-3 mb-4">
+          <p class="underline">Underlined text (underline)</p>
+          <p class="line-through">Strikethrough text (line-through)</p>
+          <p class="overline">Overlined text (overline)</p>
+          <p class="no-underline">No decoration text (no-underline) even if default has underline</p>
+          <a href="#" class="text-primary underline">Link with underline</a>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;p class="<span class="text-success font-semibold">underline</span>"&gt;Underlined&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">line-through</span>"&gt;Strikethrough&lt;/p&gt;
+&lt;p class="<span class="text-success font-semibold">overline</span>"&gt;Overlined&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <strong>Tip:</strong> Use <code>decoration-thickness</code>, <code>underline-offset-*</code>, and <code>decoration-color-*</code> for advanced styling.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Combined Examples -->
+  <section id="combined" class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">9. Real-World Examples</h2>
+        <p class="text-sm opacity-75 mb-4">Combining multiple typography utilities</p>
+
+        <!-- Card with Typography -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <!-- Blog Post Card -->
+          <div class="card bg-base-200">
+            <div class="card-body">
+              <h3 class="card-title text-xl font-bold text-primary">Blog Post Title</h3>
+              <p class="text-sm opacity-75 mb-3">By Author Name • March 15, 2024</p>
+              <p class="line-clamp-3 leading-relaxed">
+                This is a blog post excerpt with controlled typography. The text uses semantic sizing, proper line height, and color hierarchy to guide the reader's attention through the content.
+              </p>
+              <div class="card-actions justify-end">
+                <a class="text-primary font-semibold hover:underline">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Block -->
+          <div class="card bg-base-200">
+            <div class="card-body">
+              <div class="badge badge-primary mb-3">Featured</div>
+              <h3 class="text-2xl font-bold mb-2">Feature Highlight</h3>
+              <p class="text-sm opacity-75 uppercase tracking-wide font-semibold mb-3">Key Benefit</p>
+              <p class="leading-relaxed">
+                This feature block demonstrates how to combine multiple text styles to create visual hierarchy and emphasize important information.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="card"&gt;
+  &lt;h3 class="<span class="text-success font-semibold">text-xl font-bold text-primary</span>"&gt;
+    Title
+  &lt;/h3&gt;
+  &lt;p class="<span class="text-success font-semibold">text-sm opacity-75</span>"&gt;
+    Metadata
+  &lt;/p&gt;
+  &lt;p class="<span class="text-success font-semibold">line-clamp-3 leading-relaxed</span>"&gt;
+    Content goes here...
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

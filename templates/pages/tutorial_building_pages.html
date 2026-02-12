@@ -1,0 +1,534 @@
+{% extends 'base.html' %}
+
+{% block title %}Building Pages with Reusable Components - Flask Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-6 space-y-8">
+  <!-- Page Header -->
+  <section class="space-y-2">
+    <h1 class="text-4xl font-bold">Building Pages with Reusable Components</h1>
+    <p class="text-lg opacity-75">Learn how to rapidly create new pages by composing pre-built, reusable components in your Flask project</p>
+  </section>
+
+  <!-- Introduction -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10">
+      <div class="card-body">
+        <h2 class="card-title">Why Reusable Components?</h2>
+        <div class="space-y-3 mt-4">
+          <p class="opacity-75">
+            Building web applications from scratch is time-consuming. By creating reusable components, you can:
+          </p>
+          <ul class="space-y-2">
+            <li class="flex gap-3"><span class="text-success">✓</span><span><strong>Reduce Development Time</strong> - Compose pages from pre-built blocks instead of writing HTML from scratch</span></li>
+            <li class="flex gap-3"><span class="text-success">✓</span><span><strong>Maintain Consistency</strong> - All pages follow the same design system and styling</span></li>
+            <li class="flex gap-3"><span class="text-success">✓</span><span><strong>Enable Easy Updates</strong> - Change a component once and it updates everywhere</span></li>
+            <li class="flex gap-3"><span class="text-success">✓</span><span><strong>Improve Scalability</strong> - Build complex UIs by combining simple building blocks</span></li>
+            <li class="flex gap-3"><span class="text-success">✓</span><span><strong>Keep Code DRY</strong> - Don't Repeat Yourself - eliminate code duplication</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Structure Overview -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">Project Structure</h2>
+        <p class="text-sm opacity-75 mb-4">Understanding the folder organization is key to working efficiently</p>
+
+        <div class="bg-base-200 p-4 rounded-lg overflow-x-auto mb-4">
+          <pre class="text-sm font-mono"><code>flask-daisy/
+├── app.py                    (Flask routes & server)
+├── templates/
+│   ├── base.html              (Base template with navbar, scripts, theme)
+│   ├── pages/
+│   │   ├── home.html          (Dashboard showcase)
+│   │   ├── overview.html      (Project overview)
+│   │   ├── crud_showcase.html (CRUD examples)
+│   │   └── YOUR_NEW_PAGE.html (Your new page here)
+│   └── partials/              (Reusable components)
+│       ├── _navbar.html
+│       ├── _components_*.html (UI components)
+│       ├── _charts_*.html     (Chart components)
+│       └── _crud_*.html       (CRUD UI patterns)
+├── static/
+│   ├── css/dashboard.css
+│   └── js/dashboard.js
+└── README.md</code></pre>
+        </div>
+
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <strong>Key Principle:</strong> Keep page files in templates/pages/ and reusable UI blocks in templates/partials/
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 1: Plan Your Page -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 1</div>
+          <h2 class="card-title">Plan Your Page Layout</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Before writing code, sketch out what components you need</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Example: Building a Products Page</p>
+            <div class="bg-base-200 p-4 rounded-lg space-y-2">
+              <p class="text-sm">Page Structure Checklist:</p>
+              <ul class="space-y-2 ml-4">
+                <li class="text-sm">□ Header section with title and description</li>
+                <li class="text-sm">□ Search and filter controls</li>
+                <li class="text-sm">□ Product data table or grid</li>
+                <li class="text-sm">□ Pagination controls</li>
+                <li class="text-sm">□ Action buttons (Add, Edit, Delete)</li>
+                <li class="text-sm">□ Modal for creating or editing items</li>
+                <li class="text-sm">□ Footer with additional info</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              Check what partials already exist in the templates/partials/ folder before creating new ones!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 2: Understand Partials -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 2</div>
+          <h2 class="card-title">Understand How Partials Work</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Partials are HTML snippets that can be reused across pages</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">What is a Partial?</p>
+            <p class="text-sm opacity-75 mb-3">
+              A partial is a small, focused HTML file that represents a single UI component or section. It lives in the templates/partials/ folder and is included in pages using a directive.
+            </p>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">Example Partial Structure</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto mb-3">
+              <pre class="text-sm"><code>&lt;!-- File: templates/partials/_components_card.html --&gt;
+&lt;div class="card bg-base-100 shadow-lg"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h2 class="card-title"&gt;Title Here&lt;/h2&gt;
+    &lt;p&gt;Content goes here&lt;/p&gt;
+    &lt;div class="card-actions justify-end"&gt;
+      &lt;button class="btn btn-primary"&gt;Action&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="alert alert-success">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              Partials automatically inherit theme colors from base.html - no special configuration needed!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 3: Browse Existing Partials -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 3</div>
+          <h2 class="card-title">Browse Existing Partials</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Check what components are already available</p>
+
+        <div class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="border-l-4 border-primary p-4 rounded bg-base-200">
+              <h3 class="font-bold text-primary mb-2">UI Components</h3>
+              <ul class="text-sm space-y-1">
+                <li>_components_buttons.html</li>
+                <li>_components_cards.html</li>
+                <li>_components_forms.html</li>
+                <li>_components_modals.html</li>
+                <li>_components_tooltips.html</li>
+                <li>_components_footer.html</li>
+              </ul>
+            </div>
+
+            <div class="border-l-4 border-secondary p-4 rounded bg-base-200">
+              <h3 class="font-bold text-secondary mb-2">Chart Components</h3>
+              <ul class="text-sm space-y-1">
+                <li>_charts_bubble.html</li>
+                <li>_charts_bar.html</li>
+                <li>_charts_line.html</li>
+                <li>_charts_pie.html</li>
+                <li>_charts_radar.html</li>
+                <li>_charts_scatter.html</li>
+              </ul>
+            </div>
+
+            <div class="border-l-4 border-accent p-4 rounded bg-base-200">
+              <h3 class="font-bold text-accent mb-2">CRUD Components</h3>
+              <ul class="text-sm space-y-1">
+                <li>_crud_breadcrumbs.html</li>
+                <li>_crud_search_filters.html</li>
+                <li>_crud_table.html</li>
+                <li>_crud_form_modal.html</li>
+                <li>_crud_action_buttons.html</li>
+                <li>_crud_bulk_actions.html</li>
+              </ul>
+            </div>
+
+            <div class="border-l-4 border-success p-4 rounded bg-base-200">
+              <h3 class="font-bold text-success mb-2">Layout Components</h3>
+              <ul class="text-sm space-y-1">
+                <li>_navbar.html</li>
+                <li>_stats.html</li>
+                <li>_components_footer.html</li>
+                <li>_components_empty_state.html</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="alert alert-info">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              Open templates/partials/ in your editor to see all available components and preview them.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 4: Create Your Page -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 4</div>
+          <h2 class="card-title">Create Your Page File</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Combine partials to build your new page</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Example Page Structure</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-sm"><code>&lt;!-- File: templates/pages/products.html --&gt;
+&lt;!-- Extend base template --&gt;
+
+&lt;!-- Block title: Products - Dashboard --&gt;
+
+&lt;!-- Block content: --&gt;
+  &lt;div class="p-6 space-y-8"&gt;
+    &lt;!-- Page Header --&gt;
+    &lt;section class="space-y-2"&gt;
+      &lt;h1 class="text-4xl font-bold"&gt;Products&lt;/h1&gt;
+      &lt;p class="text-lg opacity-75"&gt;Manage your product inventory&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Search & Filters --&gt;
+    &lt;!-- Include search filters partial --&gt;
+
+    &lt;!-- Stats Section --&gt;
+    &lt;!-- Include stats partial --&gt;
+
+    &lt;!-- Products Table --&gt;
+    &lt;!-- Include table partial --&gt;
+
+    &lt;!-- Footer --&gt;
+    &lt;!-- Include footer partial --&gt;
+  &lt;/div&gt;
+&lt;!-- End block content --&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="alert alert-warning">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4v2m0 0H9m3 0h3" /></svg>
+            <div>
+              <strong>Naming Convention:</strong> Always use lowercase filenames with underscores: products.html or user_dashboard.html
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 5: Add Route in app.py -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 5</div>
+          <h2 class="card-title">Add a Route in app.py</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Connect your page to the Flask application</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Add a New Route</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto mb-3">
+              <pre class="text-sm"><code>@app.get("/products")
+def products():
+    return render_template("pages/products.html")</code></pre>
+            </div>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">With Dynamic Data (Optional)</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-sm"><code>@app.get("/products")
+def products():
+    products_data = [
+        {"id": 1, "name": "Widget", "price": 29.99},
+        {"id": 2, "name": "Gadget", "price": 49.99},
+    ]
+    
+    return render_template(
+        "pages/products.html",
+        products=products_data,
+        total_products=len(products_data)
+    )</code></pre>
+            </div>
+          </div>
+
+          <div class="alert alert-success">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              Always use lowercase URLs: /products, not /Products
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 6: Update Navigation -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 6</div>
+          <h2 class="card-title">Update the Navigation</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Add your page to the navbar so users can find it</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Update _navbar.html</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-sm"><code>&lt;!-- In templates/partials/_navbar.html --&gt;
+&lt;ul class="menu menu-horizontal"&gt;
+  &lt;li&gt;&lt;a href="/"&gt;Overview&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="/dashboard-showcase"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="/products"&gt;Products&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="/crud-showcase"&gt;CRUD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+          </div>
+
+          <div class="alert alert-info">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              For submenus, use nested details tags (see the Tutorials section in the navbar for an example)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 7: Test & Iterate -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 7</div>
+          <h2 class="card-title">Test & Iterate</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Verify your page works and refine as needed</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Testing Checklist</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex gap-2"><input type="checkbox" class="checkbox checkbox-sm" /> Page loads without errors</li>
+              <li class="flex gap-2"><input type="checkbox" class="checkbox checkbox-sm" /> All partials render correctly</li>
+              <li class="flex gap-2"><input type="checkbox" class="checkbox checkbox-sm" /> Navigation link works</li>
+              <li class="flex gap-2"><input type="checkbox" class="checkbox checkbox-sm" /> Page is responsive on mobile</li>
+              <li class="flex gap-2"><input type="checkbox" class="checkbox checkbox-sm" /> Theme switching works</li>
+              <li class="flex gap-2"><input type="checkbox" class="checkbox checkbox-sm" /> Buttons and interactive elements work</li>
+              <li class="flex gap-2"><input type="checkbox" class="checkbox checkbox-sm" /> Data displays correctly</li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">Debugging Tips</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex gap-2"><span class="text-info">💡</span> <span>Check Flask console for template errors</span></li>
+              <li class="flex gap-2"><span class="text-info">💡</span> <span>Open browser DevTools (F12) to inspect CSS and JS issues</span></li>
+              <li class="flex gap-2"><span class="text-info">💡</span> <span>Hard refresh (Ctrl+Shift+R) to clear browser cache</span></li>
+              <li class="flex gap-2"><span class="text-info">💡</span> <span>Check network tab if styles or scripts don't load</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Practices -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">Best Practices</h2>
+        
+        <div class="space-y-4 mt-4">
+          <div class="flex gap-4">
+            <span class="text-2xl">📝</span>
+            <div>
+              <p class="font-semibold">1. Keep Pages Focused</p>
+              <p class="text-sm opacity-75">Each page should have a single purpose. Use components to build complex layouts.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-2xl">🎨</span>
+            <div>
+              <p class="font-semibold">2. Use Spacing Consistently</p>
+              <p class="text-sm opacity-75">Wrap page content in space-y-8 and use sections for logical grouping.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-2xl">🔄</span>
+            <div>
+              <p class="font-semibold">3. Reuse Before Creating</p>
+              <p class="text-sm opacity-75">Always check if a component exists before building a new one. Mix and match existing components.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-2xl">📱</span>
+            <div>
+              <p class="font-semibold">4. Test Responsiveness</p>
+              <p class="text-sm opacity-75">Use grid utilities like grid-cols-1 md:grid-cols-2 for responsive layouts.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-2xl">🎯</span>
+            <div>
+              <p class="font-semibold">5. Document Your Pages</p>
+              <p class="text-sm opacity-75">Add comments describing what each section does, especially for complex layouts.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-2xl">🧹</span>
+            <div>
+              <p class="font-semibold">6. Keep Partials Modular</p>
+              <p class="text-sm opacity-75">Each partial should be self-contained and not depend on external styles or scripts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Pitfalls -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">Common Pitfalls to Avoid</h2>
+        
+        <div class="space-y-4 mt-4">
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2" /></svg>
+            <div>
+              <strong>Forgetting to extend base.html</strong> - Always extend the base template to get navbar, scripts, and styling
+            </div>
+          </div>
+
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2" /></svg>
+            <div>
+              <strong>Wrong partial paths</strong> - Use correct paths like partials/_name.html, not just _name.html
+            </div>
+          </div>
+
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2" /></svg>
+            <div>
+              <strong>Forgetting to add routes</strong> - Pages won't load if you don't add them to app.py
+            </div>
+          </div>
+
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2" /></svg>
+            <div>
+              <strong>Not updating navbar</strong> - Users can't find your page if it's not in the navigation menu
+            </div>
+          </div>
+
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2" /></svg>
+            <div>
+              <strong>Cache issues</strong> - Always hard refresh (Ctrl+Shift+R) when styles don't update
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Steps -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg bg-gradient-to-br from-primary/10 to-accent/10">
+      <div class="card-body">
+        <h2 class="card-title">Ready to Build?</h2>
+        
+        <div class="space-y-3 mt-4">
+          <p class="opacity-75">Now that you understand the workflow, follow these steps:</p>
+          <ol class="list-decimal list-inside space-y-2 text-sm">
+            <li>Check the existing partials in templates/partials/</li>
+            <li>Plan your page layout and components</li>
+            <li>Create your HTML file in templates/pages/</li>
+            <li>Include components in your page</li>
+            <li>Add a route in app.py</li>
+            <li>Update the navbar to link to your page</li>
+            <li>Test in your browser</li>
+            <li>Iterate and refine your design</li>
+          </ol>
+        </div>
+
+        <div class="card-actions justify-center mt-6">
+          <a href="/dashboard-showcase" class="btn btn-primary">View Example Pages</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

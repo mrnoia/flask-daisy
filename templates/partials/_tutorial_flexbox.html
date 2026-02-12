@@ -1,0 +1,164 @@
+<section id="flexbox" class="space-y-4">
+  <div class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h2 class="card-title">2. Flexbox Layouts</h2>
+      <p class="text-sm opacity-75 mb-4">Create flexible, responsive layouts using Flexbox</p>
+
+      <!-- Basic Flex Row -->
+      <div class="space-y-4">
+        <h3 class="font-semibold">Flex Row (Default)</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="flex gap-4">
+            <div class="bg-primary text-primary-content p-4 rounded flex-1">Item 1</div>
+            <div class="bg-primary text-primary-content p-4 rounded flex-1">Item 2</div>
+            <div class="bg-primary text-primary-content p-4 rounded flex-1">Item 3</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">flex gap-4</span>"&gt;
+  &lt;div class="<span class="text-success font-semibold">flex-1</span>"&gt;Item 1&lt;/div&gt;
+  &lt;div class="<span class="text-success font-semibold">flex-1</span>"&gt;Item 2&lt;/div&gt;
+  &lt;div class="<span class="text-success font-semibold">flex-1</span>"&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <strong>What it does:</strong> <code>flex</code> enables flexbox. <code>flex-1</code> makes items grow equally. <code>gap-4</code> adds spacing.
+          </div>
+        </div>
+      </div>
+
+      <!-- Flex Column -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Flex Column (Vertical)</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="flex flex-col gap-3">
+            <div class="bg-secondary text-secondary-content p-4 rounded">Item 1</div>
+            <div class="bg-secondary text-secondary-content p-4 rounded">Item 2</div>
+            <div class="bg-secondary text-secondary-content p-4 rounded">Item 3</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">flex flex-col gap-3</span>"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+  &lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Flex Alignment -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Flex Alignment Options</h3>
+        
+        <!-- justify-start -->
+        <div>
+          <p class="text-sm font-semibold mb-2">justify-start (default - left align)</p>
+          <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+            <div class="flex justify-start gap-2">
+              <div class="bg-primary text-primary-content p-3 rounded">A</div>
+              <div class="bg-primary text-primary-content p-3 rounded">B</div>
+              <div class="bg-primary text-primary-content p-3 rounded">C</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- justify-center -->
+        <div>
+          <p class="text-sm font-semibold mb-2">justify-center (center align)</p>
+          <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+            <div class="flex justify-center gap-2">
+              <div class="bg-secondary text-secondary-content p-3 rounded">A</div>
+              <div class="bg-secondary text-secondary-content p-3 rounded">B</div>
+              <div class="bg-secondary text-secondary-content p-3 rounded">C</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- justify-between -->
+        <div>
+          <p class="text-sm font-semibold mb-2">justify-between (space between)</p>
+          <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+            <div class="flex justify-between gap-2">
+              <div class="bg-accent text-accent-content p-3 rounded">A</div>
+              <div class="bg-accent text-accent-content p-3 rounded">B</div>
+              <div class="bg-accent text-accent-content p-3 rounded">C</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- justify-around -->
+        <div>
+          <p class="text-sm font-semibold mb-2">justify-around (space around)</p>
+          <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+            <div class="flex justify-around gap-2">
+              <div class="bg-success text-success-content p-3 rounded">A</div>
+              <div class="bg-success text-success-content p-3 rounded">B</div>
+              <div class="bg-success text-success-content p-3 rounded">C</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">flex justify-center</span>"&gt;
+  Centered items
+&lt;/div&gt;
+
+&lt;div class="<span class="text-success font-semibold">flex justify-between</span>"&gt;
+  Space between items
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Vertical Alignment -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Vertical Alignment (items-*)</h3>
+        
+        <!-- items-start -->
+        <div>
+          <p class="text-sm font-semibold mb-2">items-start (top)</p>
+          <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+            <div class="flex items-start gap-2 h-24">
+              <div class="bg-primary text-primary-content p-3 rounded">A</div>
+              <div class="bg-primary text-primary-content p-3 rounded h-16">B</div>
+              <div class="bg-primary text-primary-content p-3 rounded">C</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- items-center -->
+        <div>
+          <p class="text-sm font-semibold mb-2">items-center (middle)</p>
+          <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+            <div class="flex items-center gap-2 h-24">
+              <div class="bg-secondary text-secondary-content p-3 rounded">A</div>
+              <div class="bg-secondary text-secondary-content p-3 rounded h-16">B</div>
+              <div class="bg-secondary text-secondary-content p-3 rounded">C</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">flex items-center</span>"&gt;
+  Vertically centered content
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

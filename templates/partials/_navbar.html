@@ -1,20 +1,52 @@
 <header class="navbar bg-base-100 border-b sticky top-0 z-50">
-  <div class="navbar-start"><a class="btn btn-ghost text-xl">📊 Theme-aware Dashboard</a></div>
+  <div class="navbar-start"><a class="btn btn-ghost text-xl">📊 DaisyUI theme aware showcase and tutorials</a></div>
   <div class="navbar-center hidden md:flex">
     <ul class="menu menu-horizontal">
-      <li><a>Overview</a></li>
-      <li><a>Analytics</a></li>
-      <li><a>Settings</a></li>
+      <li><a href="/">Overview</a></li>
+     
+      <li>
+        <details>
+          <summary>Tutorials</summary>
+          <ul class="p-2 bg-base-100 rounded-t-none w-48">
+            <li><a href="/tutorial/layout-grid">Layout & Grid</a></li>
+            <li><a href="/tutorial/typography">Typography</a></li>
+            <li><a href="/tutorial/components">Components</a></li>
+            <li><a href="/tutorial/building-pages">Building Pages</a></li>
+            <li><a href="/tutorial/connecting-data">Connecting Data</a></li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>Demo Pages</summary>
+          <ul class="p-2 bg-base-100 rounded-t-none w-48">
+             <li><a href="/dashboard-showcase">Charts</a></li>
+            <li><a href="/products">Product inventory</a></li>
+            <li><a href="/analytics">Analytics dashboard</a></li>
+            <li><a href="/crud-showcase">CRUD components</a></li>
+          </ul>
+        </details>
+      </li>
     </ul>
   </div>
   <div class="navbar-end gap-3 pr-3">
+    <!-- Layout Toggle -->
+    <label class="swap swap-rotate" title="Toggle full-width / constrained layout">
+      <input id="layoutToggle" type="checkbox" />
+      <svg class="swap-off h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"/><path d="M3 10a1 1 0 011-1h16a1 1 0 011 1v8a1 1 0 01-1 1H4a1 1 0 01-1-1v-8z"/></svg>
+      <svg class="swap-on h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4a1 1 0 011-1h2a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"/><path d="M9 4a1 1 0 011-1h4a1 1 0 011 1v16a1 1 0 01-1 1h-4a1 1 0 01-1-1V4z"/><path d="M18 4a1 1 0 011-1h2a1 1 0 011 1v16a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+    </label>
+
+    <!-- Theme Toggle -->
     <label class="swap swap-rotate" title="Toggle light / dark">
       <input id="quickToggle" type="checkbox" />
       <svg class="swap-off h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h4v-2H1v2zm10-9h2V0h-2v4zm7.04.46l1.79-1.8-1.41-1.41-1.8 1.79 1.42 1.42zM20 11v2h4v-2h-4zm-9 9h2v4h-2v-4zM4.95 18.36l-1.79 1.8 1.41 1.41 1.8-1.79-1.42-1.42zM19.05 18.36l-1.42 1.42 1.8 1.79 1.41-1.41-1.79-1.8zM12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>
       <svg class="swap-on h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M21.64 13.64A9 9 0 1110.36 2.36a7 7 0 0011.28 11.28z"/></svg>
     </label>
+
+    <!-- Theme Selector -->
     <label class="form-control w-44">
-      <div class="label pt-0"><span class="label-text text-xs">Theme</span></div>
+    
       <select id="themeSelect" class="select select-bordered select-sm">
         <option value="system">System</option>
         <option value="light">light</option>

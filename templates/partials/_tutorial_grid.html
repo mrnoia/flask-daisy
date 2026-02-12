@@ -1,0 +1,125 @@
+<section id="grid" class="space-y-4">
+  <div class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h2 class="card-title">3. CSS Grid</h2>
+      <p class="text-sm opacity-75 mb-4">Powerful two-dimensional layouts with CSS Grid</p>
+
+      <!-- Basic Grid -->
+      <div class="space-y-4">
+        <h3 class="font-semibold">Basic Grid (grid-cols-3)</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="grid grid-cols-3 gap-4">
+            <div class="bg-primary text-primary-content p-4 rounded text-center">1</div>
+            <div class="bg-primary text-primary-content p-4 rounded text-center">2</div>
+            <div class="bg-primary text-primary-content p-4 rounded text-center">3</div>
+            <div class="bg-primary text-primary-content p-4 rounded text-center">4</div>
+            <div class="bg-primary text-primary-content p-4 rounded text-center">5</div>
+            <div class="bg-primary text-primary-content p-4 rounded text-center">6</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">grid grid-cols-3 gap-4</span>"&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div&gt;3&lt;/div&gt;
+  ...
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <strong>Available classes:</strong> grid-cols-1, grid-cols-2, grid-cols-3, grid-cols-4, grid-cols-5, grid-cols-6, grid-cols-12
+          </div>
+        </div>
+      </div>
+
+      <!-- Asymmetric Grid -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Asymmetric Grid with col-span</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="grid grid-cols-4 gap-4">
+            <div class="col-span-2 bg-primary text-primary-content p-4 rounded text-center">Spans 2 columns</div>
+            <div class="bg-secondary text-secondary-content p-4 rounded text-center">1</div>
+            <div class="bg-secondary text-secondary-content p-4 rounded text-center">2</div>
+            <div class="bg-accent text-accent-content p-4 rounded text-center">3</div>
+            <div class="col-span-2 bg-accent text-accent-content p-4 rounded text-center">Spans 2</div>
+            <div class="bg-success text-success-content p-4 rounded text-center">4</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">grid grid-cols-4 gap-4</span>"&gt;
+  &lt;div class="<span class="text-success font-semibold">col-span-2</span>"&gt;Wide item&lt;/div&gt;
+  &lt;div&gt;Regular item&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Dashboard Grid -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Real-world Dashboard Grid</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Small Cards (1 col) -->
+            <div class="bg-primary text-primary-content p-4 rounded text-center text-sm">
+              <p class="text-2xl font-bold">128</p>
+              <p>Users</p>
+            </div>
+            <div class="bg-secondary text-secondary-content p-4 rounded text-center text-sm">
+              <p class="text-2xl font-bold">$4.2K</p>
+              <p>Revenue</p>
+            </div>
+            <div class="bg-accent text-accent-content p-4 rounded text-center text-sm">
+              <p class="text-2xl font-bold">89%</p>
+              <p>Growth</p>
+            </div>
+            <div class="bg-success text-success-content p-4 rounded text-center text-sm">
+              <p class="text-2xl font-bold">42</p>
+              <p>Orders</p>
+            </div>
+            
+            <!-- Wide Chart Area (spans 2) -->
+            <div class="md:col-span-2 lg:col-span-2 bg-warning text-warning-content p-4 rounded">
+              <p class="font-semibold text-center">Wide Chart Area</p>
+              <div class="h-24 flex items-center justify-center opacity-75">📊 Chart would go here</div>
+            </div>
+            
+            <!-- Regular items -->
+            <div class="bg-info text-info-content p-4 rounded text-center">
+              <p class="font-semibold">Sidebar</p>
+            </div>
+            <div class="bg-error text-error-content p-4 rounded text-center">
+              <p class="font-semibold">Content</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4</span>"&gt;
+  &lt;!-- 4 small metric cards --&gt;
+  &lt;div&gt;Metric 1&lt;/div&gt;
+  ...
+  
+  &lt;!-- Wide chart spanning 2 cols on larger screens --&gt;
+  &lt;div class="<span class="text-success font-semibold">md:col-span-2 lg:col-span-2</span>"&gt;
+    Chart Area
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

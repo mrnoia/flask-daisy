@@ -1,0 +1,190 @@
+<section id="advanced" class="space-y-4">
+  <div class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h2 class="card-title">7. Advanced Layouts</h2>
+      <p class="text-sm opacity-75 mb-4">Combine multiple techniques for sophisticated layouts</p>
+
+      <!-- Sidebar + Main Layout -->
+      <div class="space-y-4">
+        <h3 class="font-semibold">Sidebar + Main Content</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 h-64">
+            <!-- Sidebar -->
+            <div class="md:col-span-1 bg-primary text-primary-content p-4 rounded">
+              <p class="font-semibold mb-3">Sidebar</p>
+              <ul class="space-y-2 text-sm">
+                <li>• Link 1</li>
+                <li>• Link 2</li>
+                <li>• Link 3</li>
+              </ul>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="md:col-span-3 bg-secondary text-secondary-content p-4 rounded">
+              <p class="font-semibold mb-2">Main Content</p>
+              <p class="text-sm">Main content area takes up 3/4 on medium screens</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">grid grid-cols-1 md:grid-cols-4 gap-4</span>"&gt;
+  &lt;div class="<span class="text-success font-semibold">md:col-span-1</span>"&gt;Sidebar&lt;/div&gt;
+  &lt;div class="<span class="text-success font-semibold">md:col-span-3</span>"&gt;Main&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Card Grid with Responsive -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Responsive Card Grid</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="bg-base-100 p-4 rounded border border-base-300">
+              <div class="h-24 bg-primary bg-opacity-20 rounded mb-2"></div>
+              <p class="font-semibold text-sm">Card Title</p>
+              <p class="text-xs opacity-75">Description goes here</p>
+            </div>
+            <div class="bg-base-100 p-4 rounded border border-base-300">
+              <div class="h-24 bg-secondary bg-opacity-20 rounded mb-2"></div>
+              <p class="font-semibold text-sm">Card Title</p>
+              <p class="text-xs opacity-75">Description goes here</p>
+            </div>
+            <div class="bg-base-100 p-4 rounded border border-base-300">
+              <div class="h-24 bg-accent bg-opacity-20 rounded mb-2"></div>
+              <p class="font-semibold text-sm">Card Title</p>
+              <p class="text-xs opacity-75">Description goes here</p>
+            </div>
+            <div class="bg-base-100 p-4 rounded border border-base-300">
+              <div class="h-24 bg-success bg-opacity-20 rounded mb-2"></div>
+              <p class="font-semibold text-sm">Card Title</p>
+              <p class="text-xs opacity-75">Description goes here</p>
+            </div>
+            <div class="bg-base-100 p-4 rounded border border-base-300">
+              <div class="h-24 bg-warning bg-opacity-20 rounded mb-2"></div>
+              <p class="font-semibold text-sm">Card Title</p>
+              <p class="text-xs opacity-75">Description goes here</p>
+            </div>
+            <div class="bg-base-100 p-4 rounded border border-base-300">
+              <div class="h-24 bg-error bg-opacity-20 rounded mb-2"></div>
+              <p class="font-semibold text-sm">Card Title</p>
+              <p class="text-xs opacity-75">Description goes here</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4</span>"&gt;
+  &lt;!-- Cards automatically reflow --&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Flex-based Navigation Bar -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Flexible Navigation Bar</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="flex items-center justify-between bg-base-100 p-3 rounded border border-base-300">
+            <div class="font-semibold">Logo</div>
+            <div class="flex gap-4 hidden sm:flex text-sm">
+              <a href="#" class="hover:text-primary">Home</a>
+              <a href="#" class="hover:text-primary">About</a>
+              <a href="#" class="hover:text-primary">Contact</a>
+            </div>
+            <div class="flex gap-2">
+              <button class="btn btn-sm btn-outline hidden sm:btn">Sign In</button>
+              <button class="btn btn-sm sm:hidden">☰</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">flex items-center justify-between</span>"&gt;
+  &lt;div&gt;Logo&lt;/div&gt;
+  &lt;div class="<span class="text-success font-semibold">flex gap-4 hidden sm:flex</span>"&gt;
+    Menu items
+  &lt;/div&gt;
+  &lt;button class="<span class="text-success font-semibold">sm:hidden</span>"&gt;☰&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Three-Column Dashboard -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Three-Column Dashboard</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Left Column -->
+            <div class="bg-primary text-primary-content p-4 rounded">
+              <p class="font-semibold mb-2">Left Column</p>
+              <p class="text-sm opacity-90">Filters or navigation</p>
+            </div>
+            
+            <!-- Center Column (Wide) -->
+            <div class="md:col-span-1 lg:col-span-1 bg-secondary text-secondary-content p-4 rounded">
+              <p class="font-semibold mb-2">Center Column</p>
+              <p class="text-sm opacity-90">Main content</p>
+            </div>
+            
+            <!-- Right Column -->
+            <div class="bg-accent text-accent-content p-4 rounded">
+              <p class="font-semibold mb-2">Right Column</p>
+              <p class="text-sm opacity-90">Sidebar or stats</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">grid grid-cols-1 md:grid-cols-3 gap-4</span>"&gt;
+  &lt;div&gt;Left&lt;/div&gt;
+  &lt;div&gt;Center&lt;/div&gt;
+  &lt;div&gt;Right&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Hero Section -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Hero Section with Overlay</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="relative h-64 bg-gradient-to-r from-primary to-secondary rounded overflow-hidden">
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+            <div class="relative h-full flex flex-col items-center justify-center text-center text-primary-content">
+              <h2 class="text-3xl font-bold mb-2">Welcome to Our Site</h2>
+              <p class="mb-4 opacity-90">Build amazing layouts with Tailwind CSS</p>
+              <button class="btn btn-light">Get Started</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">relative bg-gradient-to-r from-primary to-secondary</span>"&gt;
+  &lt;div class="<span class="text-success font-semibold">absolute inset-0 bg-black bg-opacity-30</span>"&gt;&lt;/div&gt;
+  &lt;div class="<span class="text-success font-semibold">relative flex flex-col items-center justify-center</span>"&gt;
+    Content goes here
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

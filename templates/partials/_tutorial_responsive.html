@@ -1,0 +1,144 @@
+<section id="responsive" class="space-y-4">
+  <div class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h2 class="card-title">4. Responsive Design</h2>
+      <p class="text-sm opacity-75 mb-4">Create layouts that adapt to different screen sizes</p>
+
+      <!-- Breakpoints Table -->
+      <div class="space-y-4">
+        <h3 class="font-semibold">Tailwind Breakpoints</h3>
+        
+        <div class="overflow-x-auto">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>Breakpoint</th>
+                <th>Min Width</th>
+                <th>Example Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>sm</code></td>
+                <td>640px</td>
+                <td><code class="text-success">sm:text-lg</code></td>
+              </tr>
+              <tr>
+                <td><code>md</code></td>
+                <td>768px</td>
+                <td><code class="text-success">md:grid-cols-2</code></td>
+              </tr>
+              <tr>
+                <td><code>lg</code></td>
+                <td>1024px</td>
+                <td><code class="text-success">lg:grid-cols-3</code></td>
+              </tr>
+              <tr>
+                <td><code>xl</code></td>
+                <td>1280px</td>
+                <td><code class="text-success">xl:grid-cols-4</code></td>
+              </tr>
+              <tr>
+                <td><code>2xl</code></td>
+                <td>1536px</td>
+                <td><code class="text-success">2xl:flex-row</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <strong>Mobile-first approach:</strong> Start with mobile styles, then add breakpoints for larger screens
+          </div>
+        </div>
+      </div>
+
+      <!-- Responsive Grid Example -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Responsive Grid Example</h3>
+        <p class="text-sm opacity-75">Resize your browser to see the grid change</p>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div class="bg-primary text-primary-content p-4 rounded text-center text-sm">Mobile: 1 col</div>
+            <div class="bg-primary text-primary-content p-4 rounded text-center text-sm">sm: 2 cols</div>
+            <div class="bg-primary text-primary-content p-4 rounded text-center text-sm">md: 3 cols</div>
+            <div class="bg-primary text-primary-content p-4 rounded text-center text-sm">lg: 4 cols</div>
+            <div class="bg-secondary text-secondary-content p-4 rounded text-center text-sm">5</div>
+            <div class="bg-secondary text-secondary-content p-4 rounded text-center text-sm">6</div>
+            <div class="bg-secondary text-secondary-content p-4 rounded text-center text-sm">7</div>
+            <div class="bg-secondary text-secondary-content p-4 rounded text-center text-sm">8</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4</span> gap-4"&gt;
+  &lt;!-- Items automatically adjust --&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Hidden/Visible at Breakpoints -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Show/Hide at Breakpoints</h3>
+        
+        <!-- Live Example -->
+        <div class="space-y-2">
+          <div class="bg-base-200 p-4 rounded-lg">
+            <div class="md:hidden bg-warning text-warning-content p-3 rounded">
+              ⚠️ Visible only on mobile (hidden on md+)
+            </div>
+          </div>
+          <div class="bg-base-200 p-4 rounded-lg">
+            <div class="hidden md:block bg-info text-info-content p-3 rounded">
+              ℹ️ Hidden on mobile, visible on md+
+            </div>
+          </div>
+          <div class="bg-base-200 p-4 rounded-lg">
+            <div class="hidden lg:block bg-success text-success-content p-3 rounded">
+              ✅ Visible only on lg screens
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;!-- Hidden on md and larger --&gt;
+&lt;div class="<span class="text-success font-semibold">md:hidden</span>"&gt;Mobile menu&lt;/div&gt;
+
+&lt;!-- Visible only on md and larger --&gt;
+&lt;div class="<span class="text-success font-semibold">hidden md:block</span>"&gt;Desktop nav&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Responsive Text -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Responsive Text Sizes</h3>
+        
+        <!-- Live Example -->
+        <div class="space-y-2">
+          <div class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+            Responsive text that grows with screen size
+          </div>
+          <p class="text-xs sm:text-sm md:text-base lg:text-lg">
+            This paragraph also responds to screen size changes
+          </p>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;h1 class="<span class="text-success font-semibold">text-2xl sm:text-3xl md:text-4xl lg:text-5xl</span>"&gt;
+  Responsive heading
+&lt;/h1&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

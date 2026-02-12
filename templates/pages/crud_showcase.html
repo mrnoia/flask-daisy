@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}CRUD Application Showcase - Flask Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-6 space-y-8">
+  <!-- Page Header -->
+  <section class="space-y-2">
+    <h1 class="text-4xl font-bold">CRUD Application Showcase</h1>
+    <p class="text-lg opacity-75">A complete layout guide for building Create, Read, Update, and Delete applications with DaisyUI</p>
+  </section>
+
+  <!-- Navigation & Breadcrumbs -->
+  {% include 'partials/_crud_breadcrumbs.html' %}
+
+  <!-- Search & Filter Section -->
+  {% include 'partials/_crud_search_filters.html' %}
+
+  <!-- Table with Pagination -->
+  {% include 'partials/_crud_table_with_pagination.html' %}
+
+  <!-- Create/Edit Form Modal -->
+  {% include 'partials/_crud_form_modal.html' %}
+
+  <!-- Layout Variations -->
+  {% include 'partials/_crud_layout_variations.html' %}
+
+  <!-- Additional CRUD Components -->
+  {% include 'partials/_crud_action_buttons.html' %}
+  {% include 'partials/_crud_bulk_actions.html' %}
+  {% include 'partials/_crud_delete_confirmation.html' %}
+  {% include 'partials/_crud_status_indicators.html' %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,559 @@
+{% extends 'base.html' %}
+
+{% block title %}Connecting Data with DuckDB & Parquet - Flask Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-6 space-y-8">
+  <!-- Page Header -->
+  <section class="space-y-2">
+    <h1 class="text-4xl font-bold">Connecting Data to Your Pages</h1>
+    <p class="text-lg opacity-75">Learn how to query data with DuckDB and display it on your Flask pages</p>
+  </section>
+
+  <!-- Introduction -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10">
+      <div class="card-body">
+        <h2 class="card-title">Why DuckDB + Parquet?</h2>
+        <div class="space-y-3 mt-4">
+          <p class="opacity-75">
+            DuckDB is a fast, in-process SQL database perfect for analytical queries on Parquet files. It's lightweight and requires no server setup.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <div class="flex gap-3">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <p class="font-semibold">Fast Queries</p>
+                <p class="text-sm opacity-75">Execute SQL queries directly on Parquet files</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <span class="text-2xl">💾</span>
+              <div>
+                <p class="font-semibold">Efficient Storage</p>
+                <p class="text-sm opacity-75">Parquet is columnar, compressed, and fast</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <span class="text-2xl">🔌</span>
+              <div>
+                <p class="font-semibold">No Server Needed</p>
+                <p class="text-sm opacity-75">In-process database, zero setup overhead</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <span class="text-2xl">📊</span>
+              <div>
+                <p class="font-semibold">Python Native</p>
+                <p class="text-sm opacity-75">Works seamlessly with Flask and Pandas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 1: Installation -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 1</div>
+          <h2 class="card-title">Install Required Packages</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Add DuckDB and Pandas to your project dependencies</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Using pip</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto mb-3">
+              <pre class="text-sm"><code>pip install duckdb pandas</code></pre>
+            </div>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">Using UV (recommended)</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-sm"><code>uv pip install duckdb pandas</code></pre>
+            </div>
+          </div>
+
+          <div class="alert alert-info">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              <strong>Note:</strong> Pandas is optional but useful for converting DuckDB results to dictionaries
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 2: Create Sample Data -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 2</div>
+          <h2 class="card-title">Create Sample Parquet Data</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Generate your first Parquet file with sample data</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Create a data generation script</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto mb-3">
+              <pre class="text-sm"><code><!-- File: create_sample_data.py -->
+import pandas as pd
+
+# Create sample product data
+data = {
+    'product_id': [1, 2, 3, 4, 5],
+    'product_name': ['Laptop', 'Mouse', 'Keyboard', 'Monitor', 'USB Cable'],
+    'category': ['Electronics', 'Electronics', 'Electronics', 'Electronics', 'Accessories'],
+    'price': [999.99, 29.99, 79.99, 299.99, 19.99],
+    'stock': [15, 150, 80, 20, 500],
+    'description': [
+        'High-performance laptop',
+        'Wireless optical mouse',
+        'Mechanical keyboard',
+        '4K display monitor',
+        '2m USB-C cable'
+    ]
+}
+
+df = pd.DataFrame(data)
+
+# Save to Parquet
+df.to_parquet('data/products.parquet', index=False)
+print("✓ Created data/products.parquet")</code></pre>
+            </div>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">Run the script to generate data</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-sm"><code>python create_sample_data.py</code></pre>
+            </div>
+          </div>
+
+          <div class="alert alert-success">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              Your Parquet file is now ready in the data/ directory
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 3: Query with DuckDB -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 3</div>
+          <h2 class="card-title">Query Data with DuckDB</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Write SQL queries to retrieve data from Parquet files</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Basic Query Example</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto mb-3">
+              <pre class="text-sm"><code>import duckdb
+
+# Query all products
+query = """
+  SELECT * FROM 'data/products.parquet'
+"""
+result = duckdb.query(query).to_df()
+print(result)</code></pre>
+            </div>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">Filtering Query</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto mb-3">
+              <pre class="text-sm"><code>import duckdb
+
+# Get products with price > $100
+query = """
+  SELECT product_name, price, stock
+  FROM 'data/products.parquet'
+  WHERE price > 100
+  ORDER BY price DESC
+"""
+result = duckdb.query(query).to_df()
+print(result)</code></pre>
+            </div>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">Aggregation Query</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-sm"><code>import duckdb
+
+# Get stats by category
+query = """
+  SELECT 
+    category,
+    COUNT(*) as product_count,
+    AVG(price) as avg_price,
+    SUM(stock) as total_stock
+  FROM 'data/products.parquet'
+  GROUP BY category
+"""
+result = duckdb.query(query).to_df()
+print(result)</code></pre>
+            </div>
+          </div>
+
+          <div class="alert alert-info">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              <strong>DuckDB Tip:</strong> Use <code>.to_df()</code> to get a Pandas DataFrame, or <code>.to_dicts()</code> to get a list of dictionaries for JSON serialization
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 4: Create a Data Helper Module -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 4</div>
+          <h2 class="card-title">Create a Data Helper Module</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Organize your queries in a reusable module</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Create a data module</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto mb-3">
+              <pre class="text-sm"><code><!-- File: data_service.py -->
+import duckdb
+from typing import List, Dict
+
+class DataService:
+    """Service for querying data with DuckDB"""
+    
+    def __init__(self, data_path: str = "data"):
+        self.data_path = data_path
+    
+    def get_all_products(self) -> List[Dict]:
+        """Get all products"""
+        query = f"""
+            SELECT * FROM '{self.data_path}/products.parquet'
+            ORDER BY product_name
+        """
+        return duckdb.query(query).to_dicts()
+    
+    def get_products_by_category(self, category: str) -> List[Dict]:
+        """Get products filtered by category"""
+        query = f"""
+            SELECT * FROM '{self.data_path}/products.parquet'
+            WHERE category = '{category}'
+            ORDER BY product_name
+        """
+        return duckdb.query(query).to_dicts()
+    
+    def search_products(self, search_term: str) -> List[Dict]:
+        """Search products by name or description"""
+        query = f"""
+            SELECT * FROM '{self.data_path}/products.parquet'
+            WHERE product_name ILIKE '%{search_term}%'
+               OR description ILIKE '%{search_term}%'
+            ORDER BY product_name
+        """
+        return duckdb.query(query).to_dicts()
+    
+    def get_product_stats(self) -> Dict:
+        """Get overall product statistics"""
+        query = f"""
+            SELECT 
+                COUNT(*) as total_products,
+                COUNT(DISTINCT category) as total_categories,
+                AVG(price) as avg_price,
+                MIN(price) as min_price,
+                MAX(price) as max_price,
+                SUM(stock) as total_stock
+            FROM '{self.data_path}/products.parquet'
+        """
+        result = duckdb.query(query).to_dicts()
+        return result[0] if result else {}
+    
+    def get_category_stats(self) -> List[Dict]:
+        """Get statistics grouped by category"""
+        query = f"""
+            SELECT 
+                category,
+                COUNT(*) as product_count,
+                AVG(price) as avg_price,
+                SUM(stock) as total_stock
+            FROM '{self.data_path}/products.parquet'
+            GROUP BY category
+            ORDER BY product_count DESC
+        """
+        return duckdb.query(query).to_dicts()
+
+# Create a global instance
+data_service = DataService()</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 5: Integrate with Flask Routes -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 5</div>
+          <h2 class="card-title">Integrate Data into Flask Routes</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Pass data from DuckDB to your templates</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Update app.py with data queries</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-sm"><code><!-- File: app.py (updated) -->
+from flask import Flask, render_template, request
+from data_service import data_service
+
+app = Flask(__name__)
+
+@app.get("/products")
+def products():
+    # Get all products and statistics
+    products = data_service.get_all_products()
+    stats = data_service.get_product_stats()
+    categories = data_service.get_category_stats()
+    
+    return render_template(
+        "pages/products.html",
+        products=products,
+        stats=stats,
+        categories=categories
+    )
+
+@app.get("/products/category/&lt;category&gt;")
+def products_by_category(category):
+    # Get products for specific category
+    products = data_service.get_products_by_category(category)
+    
+    return render_template(
+        "pages/products.html",
+        products=products,
+        category=category
+    )
+
+@app.get("/products/search")
+def search_products():
+    search_term = request.args.get("q", "")
+    products = data_service.search_products(search_term)
+    
+    return render_template(
+        "pages/products.html",
+        products=products,
+        search_term=search_term
+    )</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 6: Display Data in Templates -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="badge badge-primary badge-lg">Step 6</div>
+          <h2 class="card-title">Display Data in Your Templates</h2>
+        </div>
+        <p class="text-sm opacity-75 mb-4">Use Jinja2 to render data in HTML</p>
+
+        <div class="space-y-4">
+          <div>
+            <p class="font-semibold mb-2">Display Statistics</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto mb-3">
+              <pre class="text-sm"><code>{% raw %}&lt;!-- In your template --&gt;
+&lt;div class="stats"&gt;
+  &lt;div class="stat"&gt;
+    &lt;div class="stat-title"&gt;Total Products&lt;/div&gt;
+    &lt;div class="stat-value"&gt;{{ stats.total_products }}&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="stat"&gt;
+    &lt;div class="stat-title"&gt;Average Price&lt;/div&gt;
+    &lt;div class="stat-value"&gt;{{ "%.2f"|format(stats.avg_price) }}&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}</code></pre>
+            </div>
+          </div>
+
+          <div>
+            <p class="font-semibold mb-2">Display Table Data</p>
+            <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+              <pre class="text-sm"><code>{% raw %}&lt;table class="table"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Product Name&lt;/th&gt;
+      &lt;th&gt;Category&lt;/th&gt;
+      &lt;th&gt;Price&lt;/th&gt;
+      &lt;th&gt;Stock&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    {% for product in products %}
+    &lt;tr&gt;
+      &lt;td&gt;{{ product.product_name }}&lt;/td&gt;
+      &lt;td&gt;{{ product.category }}&lt;/td&gt;
+      &lt;td&gt;${{ "%.2f"|format(product.price) }}&lt;/td&gt;
+      &lt;td&gt;{{ product.stock }}&lt;/td&gt;
+    &lt;/tr&gt;
+    {% endfor %}
+  &lt;/tbody&gt;
+&lt;/table&gt;{% endraw %}</code></pre>
+            </div>
+          </div>
+
+          <div class="alert alert-success">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              Data from DuckDB flows seamlessly into your templates!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Practices -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">Best Practices</h2>
+        
+        <div class="space-y-4 mt-4">
+          <div class="flex gap-4">
+            <span class="text-2xl">🔒</span>
+            <div>
+              <p class="font-semibold">1. Use Parameterized Queries</p>
+              <p class="text-sm opacity-75">Always sanitize user input to prevent SQL injection</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-2xl">⚡</span>
+            <div>
+              <p class="font-semibold">2. Cache When Possible</p>
+              <p class="text-sm opacity-75">Cache frequently accessed data to improve performance</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-2xl">📊</span>
+            <div>
+              <p class="font-semibold">3. Optimize Queries</p>
+              <p class="text-sm opacity-75">Filter and aggregate data in DuckDB, not Python</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-2xl">🧪</span>
+            <div>
+              <p class="font-semibold">4. Test Your Queries</p>
+              <p class="text-sm opacity-75">Test queries in isolation before adding to routes</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4">
+            <span class="text-2xl">📁</span>
+            <div>
+              <p class="font-semibold">5. Organize Data Files</p>
+              <p class="text-sm opacity-75">Keep Parquet files in a dedicated data/ directory</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Pitfalls -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title">Common Issues & Solutions</h2>
+        
+        <div class="space-y-4 mt-4">
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2" /></svg>
+            <div>
+              <strong>File Not Found Error</strong> - Make sure your data/ directory exists and has the correct Parquet files
+            </div>
+          </div>
+
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2" /></svg>
+            <div>
+              <strong>Path Issues</strong> - Use relative paths from project root or absolute paths in production
+            </div>
+          </div>
+
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2" /></svg>
+            <div>
+              <strong>Slow Queries</strong> - Add WHERE clauses to filter early; use GROUP BY for aggregations
+            </div>
+          </div>
+
+          <div class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2" /></svg>
+            <div>
+              <strong>JSON Serialization Error</strong> - Use <code>.to_dicts()</code> instead of <code>.to_df()</code> for JSON responses
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Steps -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg bg-gradient-to-br from-primary/10 to-accent/10">
+      <div class="card-body">
+        <h2 class="card-title">Next Steps</h2>
+        
+        <div class="space-y-3 mt-4">
+          <p class="opacity-75">Ready to build data-driven pages?</p>
+          <ol class="list-decimal list-inside space-y-2 text-sm">
+            <li>Install DuckDB and Pandas</li>
+            <li>Create your Parquet data files</li>
+            <li>Build the data_service.py module</li>
+            <li>Update your Flask routes</li>
+            <li>Render data in templates with Jinja2</li>
+            <li>Test and optimize queries</li>
+            <li>Deploy with confidence!</li>
+          </ol>
+        </div>
+
+        <div class="card-actions justify-center mt-6">
+          <a href="/products" class="btn btn-primary">View Live Example</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

@@ -15,13 +15,15 @@
 <body class="min-h-screen bg-base-100 text-base-content">
   {% include 'partials/_navbar.html' %}
 
-  <main class="container mx-auto p-4 space-y-6">
+  <main id="mainContent" class="container mx-auto p-4 space-y-6">
     {% block content %}{% endblock %}
   </main>
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <!-- Your extracted JS -->
+  <!-- Layout Toggle -->
+  <script src="{{ url_for('static', filename='js/layout-toggle.js') }}"></script>
+  <!-- Dashboard JS -->
   <script type="module" src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
   
   {% block scripts %}{% endblock %}

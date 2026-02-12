@@ -1,0 +1,261 @@
+<section class="space-y-8">
+  <h2 class="text-3xl font-bold">Layout Variations</h2>
+
+  <!-- Layout 1: Card Grid Layout -->
+  <div class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h3 class="card-title">Card Grid Layout (List View)</h3>
+      <p class="text-sm opacity-75 mb-4">Great for visual browsing and mobile responsiveness</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Card 1 -->
+        <div class="card bg-base-200 shadow-sm">
+          <figure class="h-40 bg-gradient-to-br from-primary to-primary-focus"></figure>
+          <div class="card-body p-4">
+            <h4 class="card-title text-base">Wireless Headphones</h4>
+            <p class="text-sm">High-quality audio with noise cancellation</p>
+            <div class="flex justify-between items-center text-sm mt-2">
+              <span class="font-bold">$129.99</span>
+              <div class="badge badge-success">In Stock</div>
+            </div>
+            <div class="card-actions justify-end gap-2 mt-4">
+              <button class="btn btn-sm btn-outline">View</button>
+              <button class="btn btn-sm btn-primary">Edit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card bg-base-200 shadow-sm">
+          <figure class="h-40 bg-gradient-to-br from-secondary to-secondary-focus"></figure>
+          <div class="card-body p-4">
+            <h4 class="card-title text-base">USB-C Cable</h4>
+            <p class="text-sm">Fast charging and data transfer</p>
+            <div class="flex justify-between items-center text-sm mt-2">
+              <span class="font-bold">$19.99</span>
+              <div class="badge badge-success">In Stock</div>
+            </div>
+            <div class="card-actions justify-end gap-2 mt-4">
+              <button class="btn btn-sm btn-outline">View</button>
+              <button class="btn btn-sm btn-primary">Edit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card bg-base-200 shadow-sm">
+          <figure class="h-40 bg-gradient-to-br from-accent to-accent-focus"></figure>
+          <div class="card-body p-4">
+            <h4 class="card-title text-base">Laptop Stand</h4>
+            <p class="text-sm">Adjustable ergonomic design</p>
+            <div class="flex justify-between items-center text-sm mt-2">
+              <span class="font-bold">$49.99</span>
+              <div class="badge badge-warning">Low Stock</div>
+            </div>
+            <div class="card-actions justify-end gap-2 mt-4">
+              <button class="btn btn-sm btn-outline">View</button>
+              <button class="btn btn-sm btn-primary">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layout 2: Sidebar + Content -->
+  <div class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h3 class="card-title mb-4">Sidebar + Content Layout</h3>
+      <p class="text-sm opacity-75 mb-4">Perfect for detailed views and filtering</p>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <!-- Sidebar -->
+        <div class="lg:col-span-1 space-y-3">
+          <div class="divider">Filters</div>
+          
+          <div>
+            <h4 class="font-semibold text-sm mb-2">Category</h4>
+            <div class="space-y-1">
+              <label class="label cursor-pointer">
+                <span class="label-text text-sm">Electronics</span>
+                <input type="checkbox" class="checkbox checkbox-sm" checked />
+              </label>
+              <label class="label cursor-pointer">
+                <span class="label-text text-sm">Accessories</span>
+                <input type="checkbox" class="checkbox checkbox-sm" />
+              </label>
+              <label class="label cursor-pointer">
+                <span class="label-text text-sm">Office</span>
+                <input type="checkbox" class="checkbox checkbox-sm" />
+              </label>
+            </div>
+          </div>
+
+          <div class="divider my-2"></div>
+
+          <div>
+            <h4 class="font-semibold text-sm mb-2">Price Range</h4>
+            <input type="range" min="0" max="500" class="range range-sm" />
+            <div class="flex justify-between text-xs opacity-50 mt-1">
+              <span>$0</span>
+              <span>$500</span>
+            </div>
+          </div>
+
+          <div class="divider my-2"></div>
+
+          <div>
+            <h4 class="font-semibold text-sm mb-2">Availability</h4>
+            <div class="space-y-1">
+              <label class="label cursor-pointer">
+                <span class="label-text text-sm">In Stock</span>
+                <input type="checkbox" class="checkbox checkbox-sm" checked />
+              </label>
+              <label class="label cursor-pointer">
+                <span class="label-text text-sm">Low Stock</span>
+                <input type="checkbox" class="checkbox checkbox-sm" />
+              </label>
+              <label class="label cursor-pointer">
+                <span class="label-text text-sm">Out of Stock</span>
+                <input type="checkbox" class="checkbox checkbox-sm" />
+              </label>
+            </div>
+          </div>
+
+          <button class="btn btn-outline btn-sm w-full mt-4">Reset Filters</button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3 space-y-3">
+          <div class="flex justify-between items-center mb-4">
+            <select class="select select-bordered select-sm w-32">
+              <option>Sort by</option>
+              <option>Name A-Z</option>
+              <option>Price Low</option>
+              <option>Price High</option>
+              <option>Newest</option>
+            </select>
+            <button class="btn btn-primary btn-sm">Add New</button>
+          </div>
+
+          <!-- List Items -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between p-3 bg-base-200 rounded-lg hover:bg-base-300 transition">
+              <div>
+                <h4 class="font-semibold">Wireless Headphones</h4>
+                <p class="text-sm opacity-75">Electronics • SKU: WH-001</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="font-bold">$129.99</span>
+                <div class="badge badge-success">In Stock</div>
+                <button class="btn btn-ghost btn-xs">→</button>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-3 bg-base-200 rounded-lg hover:bg-base-300 transition">
+              <div>
+                <h4 class="font-semibold">USB-C Cable</h4>
+                <p class="text-sm opacity-75">Accessories • SKU: USB-002</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="font-bold">$19.99</span>
+                <div class="badge badge-success">In Stock</div>
+                <button class="btn btn-ghost btn-xs">→</button>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between p-3 bg-base-200 rounded-lg hover:bg-base-300 transition">
+              <div>
+                <h4 class="font-semibold">Laptop Stand</h4>
+                <p class="text-sm opacity-75">Office Equipment • SKU: LS-003</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="font-bold">$49.99</span>
+                <div class="badge badge-warning">Low Stock</div>
+                <button class="btn btn-ghost btn-xs">→</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layout 3: Two Column Form Layout -->
+  <div class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h3 class="card-title">Two-Column Form Layout</h3>
+      <p class="text-sm opacity-75 mb-4">Optimal for desktop, stacks on mobile</p>
+      
+      <form class="space-y-4">
+        <!-- Row 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">First Name</span>
+            </label>
+            <input type="text" placeholder="John" class="input input-bordered" />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Last Name</span>
+            </label>
+            <input type="text" placeholder="Doe" class="input input-bordered" />
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Email</span>
+            </label>
+            <input type="email" placeholder="john@example.com" class="input input-bordered" />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Phone</span>
+            </label>
+            <input type="tel" placeholder="+1 (555) 000-0000" class="input input-bordered" />
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">City</span>
+            </label>
+            <input type="text" placeholder="New York" class="input input-bordered" />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">State</span>
+            </label>
+            <input type="text" placeholder="NY" class="input input-bordered" />
+          </div>
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">ZIP Code</span>
+            </label>
+            <input type="text" placeholder="10001" class="input input-bordered" />
+          </div>
+        </div>
+
+        <!-- Full Width Row -->
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Address</span>
+          </label>
+          <input type="text" placeholder="123 Main Street" class="input input-bordered" />
+        </div>
+
+        <!-- Actions -->
+        <div class="flex gap-2 pt-4">
+          <button type="button" class="btn btn-outline">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

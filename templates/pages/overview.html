@@ -1,0 +1,364 @@
+{% extends 'base.html' %}
+
+{% block title %}Overview - Flask DaisyUI Showcase{% endblock %}
+
+{% block content %}
+<div class="p-6 space-y-8">
+  <!-- Hero Section -->
+  <section class="space-y-4">
+    <div class="hero bg-gradient-to-r from-primary to-secondary rounded-xl overflow-hidden">
+      <div class="hero-content text-center text-primary-content py-16">
+        <div class="max-w-2xl">
+          <h1 class="text-5xl font-bold mb-4">Flask + DaisyUI Showcase</h1>
+          <p class="text-lg opacity-90 mb-6">
+            A comprehensive guide to building modern, theme-aware web applications using Flask, Tailwind CSS, and DaisyUI
+          </p>
+          <div class="flex gap-3 justify-center flex-wrap">
+            <a href="/tutorial/layout-grid" class="btn btn-light">Start Learning</a>
+            <a href="/crud-showcase" class="btn btn-outline btn-light">View CRUD Example</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What This Project Is About -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title text-2xl">What This Project Is About</h2>
+        <p class="text-lg opacity-75">
+          This project demonstrates how to build beautiful, responsive, and theme-aware web applications using a modern tech stack.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <!-- Flask Backend -->
+          <div class="bg-base-200 p-6 rounded-lg border-l-4 border-primary">
+            <h3 class="text-xl font-bold text-primary mb-3">🐍 Flask Backend</h3>
+            <p class="opacity-75 mb-4">
+              A lightweight Python web framework that powers the server-side logic. Flask handles routing, template rendering, and dynamic data management.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex gap-2"><span class="text-success">✓</span> Simple and intuitive routing</li>
+              <li class="flex gap-2"><span class="text-success">✓</span> Jinja2 template engine</li>
+              <li class="flex gap-2"><span class="text-success">✓</span> Easy integration with databases</li>
+            </ul>
+          </div>
+
+          <!-- Tailwind CSS -->
+          <div class="bg-base-200 p-6 rounded-lg border-l-4 border-secondary">
+            <h3 class="text-xl font-bold text-secondary mb-3">🎨 Tailwind CSS</h3>
+            <p class="opacity-75 mb-4">
+              A utility-first CSS framework that enables rapid UI development with pre-built classes. Build responsive designs without writing CSS.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex gap-2"><span class="text-success">✓</span> Utility-first approach</li>
+              <li class="flex gap-2"><span class="text-success">✓</span> Responsive design made easy</li>
+              <li class="flex gap-2"><span class="text-success">✓</span> Dark mode support</li>
+            </ul>
+          </div>
+
+          <!-- DaisyUI -->
+          <div class="bg-base-200 p-6 rounded-lg border-l-4 border-accent">
+            <h3 class="text-xl font-bold text-accent mb-3">✨ DaisyUI Components</h3>
+            <p class="opacity-75 mb-4">
+              Pre-built component library built on Tailwind CSS. Provides buttons, cards, modals, forms, and more—all theme-aware and customizable.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex gap-2"><span class="text-success">✓</span> 50+ ready-to-use components</li>
+              <li class="flex gap-2"><span class="text-success">✓</span> Multiple built-in themes</li>
+              <li class="flex gap-2"><span class="text-success">✓</span> Fully accessible (a11y)</li>
+            </ul>
+          </div>
+
+          <!-- Chart.js -->
+          <div class="bg-base-200 p-6 rounded-lg border-l-4 border-warning">
+            <h3 class="text-xl font-bold text-warning mb-3">📊 Chart.js</h3>
+            <p class="opacity-75 mb-4">
+              A JavaScript charting library for creating interactive, animated charts. Perfect for visualizing data with theme support.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex gap-2"><span class="text-success">✓</span> 8+ chart types</li>
+              <li class="flex gap-2"><span class="text-success">✓</span> Theme-aware colors</li>
+              <li class="flex gap-2"><span class="text-success">✓</span> Responsive and animated</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title text-2xl">🌟 Key Features</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <!-- Theme Switching -->
+          <div class="flex gap-4">
+            <div class="text-3xl">🎭</div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Multi-Theme Support</h3>
+              <p class="opacity-75 text-sm">
+                Switch between 8 different DaisyUI themes (light, dark, cupcake, corporate, forest, synthwave, nord) with a single click. Changes persist with localStorage.
+              </p>
+            </div>
+          </div>
+
+          <!-- Responsive Design -->
+          <div class="flex gap-4">
+            <div class="text-3xl">📱</div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Fully Responsive</h3>
+              <p class="opacity-75 text-sm">
+                Built with mobile-first design principles. Works flawlessly on phones, tablets, and desktops using Tailwind's responsive utilities.
+              </p>
+            </div>
+          </div>
+
+          <!-- Component Library -->
+          <div class="flex gap-4">
+            <div class="text-3xl">🧩</div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Reusable Components</h3>
+              <p class="opacity-75 text-sm">
+                Modular partials for cards, forms, tables, modals, buttons, and more. Build pages quickly by composing pre-made components.
+              </p>
+            </div>
+          </div>
+
+          <!-- Data Visualization -->
+          <div class="flex gap-4">
+            <div class="text-3xl">📈</div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Interactive Charts</h3>
+              <p class="opacity-75 text-sm">
+                8+ chart types (line, bar, pie, doughnut, radar, area, mixed, polar) that automatically adapt colors based on the active theme.
+              </p>
+            </div>
+          </div>
+
+          <!-- Layout Control -->
+          <div class="flex gap-4">
+            <div class="text-3xl">📐</div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Flexible Layout</h3>
+              <p class="opacity-75 text-sm">
+                Toggle between full-width and container-constrained layouts. Perfect for different page types and user preferences.
+              </p>
+            </div>
+          </div>
+
+          <!-- Easy to Learn -->
+          <div class="flex gap-4">
+            <div class="text-3xl">📚</div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Learning Resources</h3>
+              <p class="opacity-75 text-sm">
+                Comprehensive tutorials with live examples and code snippets. Learn layout, typography, components, and more step-by-step.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title text-2xl">🔧 How It Works</h2>
+        
+        <div class="space-y-6 mt-4">
+          <!-- Step 1 -->
+          <div class="flex gap-4">
+            <div class="badge badge-primary text-lg w-12 h-12 flex items-center justify-center flex-shrink-0">1</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Flask Routes</h3>
+              <p class="opacity-75">
+                Flask handles HTTP requests and renders Jinja2 templates. Each route corresponds to a page (home, CRUD showcase, tutorials, etc.).
+              </p>
+              <div class="bg-base-200 p-3 rounded mt-2 text-sm overflow-x-auto">
+                <code>@app.get("/") → render_template("pages/home.html")</code>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flex gap-4">
+            <div class="badge badge-secondary text-lg w-12 h-12 flex items-center justify-center flex-shrink-0">2</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Modular Templates</h3>
+              <p class="opacity-75">
+                HTML templates use Jinja2 includes to compose pages from reusable partials. Keep templates DRY by breaking them into components.
+              </p>
+              <div class="bg-base-200 p-3 rounded mt-2 text-sm overflow-x-auto">
+                <code>{% include 'partials/_navbar.html' %}</code>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex gap-4">
+            <div class="badge badge-accent text-lg w-12 h-12 flex items-center justify-center flex-shrink-0">3</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Tailwind + DaisyUI</h3>
+              <p class="opacity-75">
+                CSS framework and component library provide styling. All components are theme-aware and respond to data-theme changes.
+              </p>
+              <div class="bg-base-200 p-3 rounded mt-2 text-sm overflow-x-auto">
+                <code>&lt;html data-theme="dark"&gt; ← Controls active theme</code>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="flex gap-4">
+            <div class="badge badge-success text-lg w-12 h-12 flex items-center justify-center flex-shrink-0">4</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">JavaScript Enhancement</h3>
+              <p class="opacity-75">
+                Client-side JavaScript handles theme switching, chart rendering, and layout toggling. Organized in separate files for maintainability.
+              </p>
+              <div class="bg-base-200 p-3 rounded mt-2 text-sm overflow-x-auto">
+                <code>dashboard.js, layout-toggle.js</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting Started -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title text-2xl">🚀 Getting Started</h2>
+        
+        <div class="space-y-4 mt-4">
+          <div class="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div>
+              <strong>New to this project?</strong> Start by exploring the tutorials and examples below!
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Tutorial Links -->
+            <div class="border-l-4 border-primary p-4 rounded bg-base-200">
+              <h3 class="font-bold text-primary mb-3">📖 Tutorials</h3>
+              <ul class="space-y-2 text-sm">
+                <li><a href="/tutorial/layout-grid" class="text-primary hover:underline">→ Layout & Grid System</a></li>
+                <li><a href="/tutorial/typography" class="text-primary hover:underline">→ Typography & Text Styling</a></li>
+                <li><a href="#" class="text-primary hover:underline opacity-50">→ Components (coming soon)</a></li>
+                <li><a href="#" class="text-primary hover:underline opacity-50">→ Forms & Validation (coming soon)</a></li>
+                <li><a href="#" class="text-primary hover:underline opacity-50">→ Connecting Data (coming soon)</a></li>
+              </ul>
+            </div>
+
+            <!-- Live Examples -->
+            <div class="border-l-4 border-secondary p-4 rounded bg-base-200">
+              <h3 class="font-bold text-secondary mb-3">💻 Live Examples</h3>
+              <ul class="space-y-2 text-sm">
+                <li><a href="/" class="text-secondary hover:underline">→ Dashboard Showcase</a></li>
+                <li><a href="/crud-showcase" class="text-secondary hover:underline">→ CRUD Application</a></li>
+                <li><a href="#" class="text-secondary hover:underline opacity-50">→ Data Tables (coming soon)</a></li>
+                <li><a href="#" class="text-secondary hover:underline opacity-50">→ Charts & Graphs (coming soon)</a></li>
+                <li><a href="#" class="text-secondary hover:underline opacity-50">→ Forms Demo (coming soon)</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Structure -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title text-2xl">📁 Project Structure</h2>
+        
+        <div class="bg-base-200 p-4 rounded-lg overflow-x-auto mt-4">
+          <pre class="text-sm font-mono"><code>flask-daisy/
+├── app.py                 # Flask application & routes
+├── templates/
+│   ├── base.html         # Base template with navbar, scripts
+│   ├── pages/
+│   │   ├── home.html
+│   │   ├── overview.html
+│   │   ├── crud_showcase.html
+│   │   └── tutorial_*.html
+│   └── partials/
+│       ├── _navbar.html
+│       ├── _components_*.html
+│       ├── _charts_*.html
+│       └── _crud_*.html
+├── static/
+│   ├── css/
+│   │   └── dashboard.css
+│   └── js/
+│       ├── dashboard.js
+│       └── layout-toggle.js
+└── README.md</code></pre>
+        </div>
+
+        <p class="opacity-75 mt-4 text-sm">
+          <strong>templates/partials/:</strong> Reusable HTML components included across pages
+        </p>
+        <p class="opacity-75 text-sm">
+          <strong>static/js/:</strong> JavaScript organized by functionality (charts, layout, etc.)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Steps -->
+  <section class="space-y-4">
+    <div class="card bg-base-100 shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10">
+      <div class="card-body">
+        <h2 class="card-title text-2xl">📋 Next Steps</h2>
+        
+        <div class="space-y-3 mt-4">
+          <div class="flex gap-3">
+            <span class="text-2xl">1️⃣</span>
+            <div>
+              <p class="font-semibold">Explore the Tutorials</p>
+              <p class="text-sm opacity-75">Learn about layouts, typography, and component patterns</p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-2xl">2️⃣</span>
+            <div>
+              <p class="font-semibold">Review the CRUD Showcase</p>
+              <p class="text-sm opacity-75">See practical examples of forms, tables, and CRUD operations</p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-2xl">3️⃣</span>
+            <div>
+              <p class="font-semibold">Customize for Your Needs</p>
+              <p class="text-sm opacity-75">Use this as a template for your own Flask + DaisyUI projects</p>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <span class="text-2xl">4️⃣</span>
+            <div>
+              <p class="font-semibold">Connect Real Data</p>
+              <p class="text-sm opacity-75">Add database integration and dynamic content (coming soon tutorial)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-actions justify-center mt-6">
+          <a href="/tutorial/layout-grid" class="btn btn-primary">Start Learning →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

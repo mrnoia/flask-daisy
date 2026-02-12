@@ -1,0 +1,100 @@
+<section id="containers" class="space-y-4">
+  <div class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h2 class="card-title">1. Containers & Sizing</h2>
+      <p class="text-sm opacity-75 mb-4">Control the max-width and centering of your layouts</p>
+
+      <!-- Container Example -->
+      <div class="space-y-4">
+        <h3 class="font-semibold">Container with mx-auto (Centered)</h3>
+        
+        <!-- Live Example -->
+        <div class="bg-base-200 p-4 rounded-lg border-2 border-dashed border-base-300">
+          <div class="container mx-auto bg-primary text-primary-content p-4 rounded">
+            <p class="text-center font-semibold">This container is centered with mx-auto</p>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">container mx-auto</span> p-4"&gt;
+  Centered container
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="alert alert-info">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div>
+            <strong>What it does:</strong> <code>container</code> applies responsive max-widths. <code>mx-auto</code> centers it horizontally.
+          </div>
+        </div>
+      </div>
+
+      <!-- Max-Width Example -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Max-Width Classes</h3>
+        
+        <!-- Live Examples -->
+        <div class="space-y-3">
+          <div class="bg-base-200 p-4 rounded-lg">
+            <div class="max-w-sm bg-secondary text-secondary-content p-3 rounded mx-auto">
+              <p class="text-center text-sm">max-w-sm (24rem / 384px)</p>
+            </div>
+          </div>
+          <div class="bg-base-200 p-4 rounded-lg">
+            <div class="max-w-md bg-accent text-accent-content p-3 rounded mx-auto">
+              <p class="text-center text-sm">max-w-md (28rem / 448px)</p>
+            </div>
+          </div>
+          <div class="bg-base-200 p-4 rounded-lg">
+            <div class="max-w-2xl bg-success text-success-content p-3 rounded mx-auto">
+              <p class="text-center text-sm">max-w-2xl (42rem / 672px)</p>
+            </div>
+          </div>
+          <div class="bg-base-200 p-4 rounded-lg">
+            <div class="max-w-5xl bg-warning text-warning-content p-3 rounded mx-auto">
+              <p class="text-center text-sm">max-w-5xl (64rem / 1024px)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">max-w-2xl</span> <span class="text-success font-semibold">mx-auto</span>"&gt;
+  Constrained width content
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <!-- Full Width & Width Utilities -->
+      <div class="divider"></div>
+      <div class="space-y-4">
+        <h3 class="font-semibold">Width Utilities</h3>
+        
+        <!-- Live Examples -->
+        <div class="space-y-2">
+          <div class="bg-base-200 p-2 rounded">
+            <div class="w-full bg-primary text-primary-content p-2 rounded text-sm text-center">w-full (100%)</div>
+          </div>
+          <div class="bg-base-200 p-2 rounded">
+            <div class="w-1/2 bg-secondary text-secondary-content p-2 rounded text-sm text-center">w-1/2 (50%)</div>
+          </div>
+          <div class="bg-base-200 p-2 rounded">
+            <div class="w-2/3 bg-accent text-accent-content p-2 rounded text-sm text-center">w-2/3 (66.666%)</div>
+          </div>
+          <div class="bg-base-200 p-2 rounded">
+            <div class="w-3/4 bg-success text-success-content p-2 rounded text-sm text-center">w-3/4 (75%)</div>
+          </div>
+        </div>
+
+        <!-- Code Display -->
+        <div class="bg-base-200 rounded-lg p-4 overflow-x-auto">
+          <pre class="text-sm"><code>&lt;div class="<span class="text-success font-semibold">w-full</span>"&gt;Full Width&lt;/div&gt;
+&lt;div class="<span class="text-success font-semibold">w-1/2</span>"&gt;Half Width&lt;/div&gt;
+&lt;div class="<span class="text-success font-semibold">w-2/3</span>"&gt;Two-thirds Width&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

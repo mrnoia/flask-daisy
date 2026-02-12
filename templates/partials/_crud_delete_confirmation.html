@@ -1,0 +1,20 @@
+<!-- Delete Confirmation Modal -->
+<dialog id="deleteModal" class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Delete Product</h3>
+    <p class="py-4">Are you sure you want to delete <span class="font-semibold">Wireless Headphones</span>? This action cannot be undone.</p>
+    
+    <div class="alert alert-warning">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4v2m0 4v2M4.22 4.22a9 9 0 0112.73 0M4.22 19.78a9 9 0 0112.73 0M4.22 4.22a9 9 0 0112.73 0" /></svg>
+      <span>This will permanently remove all associated data.</span>
+    </div>
+
+    <div class="modal-action">
+      <button type="button" class="btn" onclick="deleteModal.close()">Cancel</button>
+      <button type="button" class="btn btn-error">Delete Product</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+</dialog>
