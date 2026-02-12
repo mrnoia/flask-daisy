@@ -110,6 +110,66 @@ class DataService:
         result = duckdb.query(query)
         columns = [desc[0] for desc in result.description]
         return [dict(zip(columns, row)) for row in result.fetchall()]
+    
+    def get_products_paginated(self, page: int = 1, per_page: int = 20, search: str = "", category: str = "") -> Dict:
+        """Get products with pagination and search/filter"""
+        offset = (page - 1) * per_page
+        
+        # Build WHERE clause
+        where_conditions = []
+        if search:
+            where_conditions.append(f"product_name ILIKE '%{search}%' OR sku ILIKE '%{search}%'")
+        if category:
+            where_conditions.append(f"category = '{category}'")
+        
+        where_clause = " AND ".join(where_conditions) if where_conditions else "1=1"
+        
+        # Count total records
+        count_query = f"""
+            SELECT COUNT(*) as total
+            FROM '{self.data_path}/products.parquet'
+            WHERE {where_clause}
+        """
+        count_result = duckdb.query(count_query)
+        count_columns = [desc[0] for desc in count_result.description]
+        total = dict(zip(count_columns, count_result.fetchall()[0]))['total']
+        
+        # Get paginated data
+        data_query = f"""
+            SELECT 
+                product_id, product_name, category, price, stock,
+                sku, supplier, last_updated, status
+            FROM '{self.data_path}/products.parquet'
+            WHERE {where_clause}
+            ORDER BY product_id
+            LIMIT {per_page} OFFSET {offset}
+        """
+        data_result = duckdb.query(data_query)
+        data_columns = [desc[0] for desc in data_result.description]
+        products = [dict(zip(data_columns, row)) for row in data_result.fetchall()]
+        
+        total_pages = (total + per_page - 1) // per_page
+        
+        return {
+            'products': products,
+            'total': total,
+            'page': page,
+            'per_page': per_page,
+            'total_pages': total_pages,
+            'has_prev': page > 1,
+            'has_next': page < total_pages
+        }
+    
+    def get_all_categories(self) -> List[str]:
+        """Get all unique categories"""
+        query = f"""
+            SELECT DISTINCT category
+            FROM '{self.data_path}/products.parquet'
+            ORDER BY category
+        """
+        result = duckdb.query(query)
+        columns = [desc[0] for desc in result.description]
+        return [dict(zip(columns, row))['category'] for row in result.fetchall()]
 
 # Create a global instance
 data_service = DataService()

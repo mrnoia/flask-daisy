@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+
+{% block title %}Products Table - Flask Dashboard{% endblock %}
+
+{% block content %}
+<div class="p-6 space-y-8">
+  <!-- Page Header -->
+  <section class="space-y-2">
+    <h1 class="text-4xl font-bold">📋 Products Inventory</h1>
+    <p class="text-lg opacity-75">Browse all products with search and filtering</p>
+  </section>
+
+  <!-- Search and Filter Section -->
+  <section class="card bg-base-100 shadow-lg">
+    <div class="card-body">
+      <h2 class="card-title mb-4">Search & Filter</h2>
+      <form method="get" class="flex flex-col md:flex-row gap-4">
+        <!-- Search Input -->
+        <div class="form-control flex-1">
+          <label class="label">
+            <span class="label-text">Search by name or SKU</span>
+          </label>
+          <input 
+            type="text" 
+            name="search" 
+            value="{{ search }}"
+            placeholder="Enter product name or SKU..." 
+            class="input input-bordered"
+          />
+        </div>
+
+        <!-- Category Filter -->
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Category</span>
+          </label>
+          <select name="category" class="select select-bordered">
+            <option value="">All Categories</option>
+            {% for cat in categories %}
+              <option value="{{ cat }}" {% if cat == selected_category %}selected{% endif %}>{{ cat }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Search Button -->
+        <div class="form-control flex justify-end">
+          <label class="label">
+            <span class="label-text">&nbsp;</span>
+          </label>
+          <button type="submit" class="btn btn-primary">Search</button>
+          <a href="/products-table" class="btn btn-ghost ml-2">Reset</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Results Info -->
+  <section class="flex justify-between items-center">
+    <div class="text-sm opacity-75">
+      Showing <span class="font-bold">{{ pagination_data.products|length }}</span> of 
+      <span class="font-bold">{{ pagination_data.total }}</span> products
+    </div>
+  </section>
+
+  <!-- Products Table -->
+  <section class="card bg-base-100 shadow-lg overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="table table-zebra w-full">
+        <thead>
+          <tr class="bg-base-200">
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>SKU</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Supplier</th>
+            <th>Status</th>
+            <th>Last Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if pagination_data.products %}
+            {% for product in pagination_data.products %}
+              <tr class="hover">
+                <td class="font-mono text-sm">{{ product.product_id }}</td>
+                <td class="font-semibold">{{ product.product_name }}</td>
+                <td class="font-mono text-sm opacity-75">{{ product.sku }}</td>
+                <td>
+                  <span class="badge badge-outline">{{ product.category }}</span>
+                </td>
+                <td class="font-mono font-bold">${{ "%.2f"|format(product.price) }}</td>
+                <td>
+                  {% if product.stock == 0 %}
+                    <span class="badge badge-error">Out of Stock</span>
+                  {% elif product.stock < 25 %}
+                    <span class="badge badge-warning">{{ product.stock }}</span>
+                  {% else %}
+                    <span class="badge badge-success">{{ product.stock }}</span>
+                  {% endif %}
+                </td>
+                <td class="text-sm">{{ product.supplier }}</td>
+                <td>
+                  {% if product.status == 'Active' %}
+                    <span class="badge badge-success badge-sm">{{ product.status }}</span>
+                  {% elif product.status == 'Inactive' %}
+                    <span class="badge badge-warning badge-sm">{{ product.status }}</span>
+                  {% else %}
+                    <span class="badge badge-ghost badge-sm">{{ product.status }}</span>
+                  {% endif %}
+                </td>
+                <td class="text-sm opacity-75">{{ product.last_updated }}</td>
+              </tr>
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="9" class="text-center py-8 opacity-50">
+                No products found. Try adjusting your search or filters.
+              </td>
+            </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  {% if pagination_data.total_pages > 1 %}
+    <section class="flex justify-center items-center gap-2">
+      <!-- Previous Button -->
+      {% if pagination_data.has_prev %}
+        <a href="/products-table?page={{ pagination_data.page - 1 }}&search={{ search }}&category={{ selected_category }}" class="btn btn-sm btn-outline">
+          ← Previous
+        </a>
+      {% else %}
+        <button class="btn btn-sm btn-outline" disabled>← Previous</button>
+      {% endif %}
+
+      <!-- Page Numbers -->
+      <div class="flex gap-1">
+        {% for page_num in range(1, pagination_data.total_pages + 1) %}
+          {% if page_num == pagination_data.page %}
+            <button class="btn btn-sm btn-primary">{{ page_num }}</button>
+          {% elif page_num >= pagination_data.page - 2 and page_num <= pagination_data.page + 2 %}
+            <a href="/products-table?page={{ page_num }}&search={{ search }}&category={{ selected_category }}" class="btn btn-sm btn-outline">
+              {{ page_num }}
+            </a>
+          {% elif page_num == pagination_data.page - 3 or page_num == pagination_data.page + 3 %}
+            <span class="px-2 flex items-center">...</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Next Button -->
+      {% if pagination_data.has_next %}
+        <a href="/products-table?page={{ pagination_data.page + 1 }}&search={{ search }}&category={{ selected_category }}" class="btn btn-sm btn-outline">
+          Next →
+        </a>
+      {% else %}
+        <button class="btn btn-sm btn-outline" disabled>Next →</button>
+      {% endif %}
+    </section>
+  {% endif %}
+
+  <!-- Info Alert -->
+  <section class="alert alert-info">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+    <div>
+      <strong>Data Source:</strong> This table loads data from a Parquet file using DuckDB with server-side pagination and search.
+    </div>
+  </section>
+
+</div>
+{% endblock %}

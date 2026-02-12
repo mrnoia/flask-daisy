@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from data_service import data_service
 
 app = Flask(__name__)
@@ -38,6 +38,29 @@ def tutorial_connecting_data():
 @app.get("/products")
 def products():
     return render_template("pages/products.html")
+
+@app.get("/products-table")
+def products_table():
+    """Products table with pagination and search"""
+    page = request.args.get('page', 1, type=int)
+    search = request.args.get('search', '', type=str)
+    category = request.args.get('category', '', type=str)
+    
+    pagination_data = data_service.get_products_paginated(
+        page=page, 
+        per_page=20, 
+        search=search,
+        category=category
+    )
+    categories = data_service.get_all_categories()
+    
+    return render_template(
+        "pages/products_table.html",
+        pagination_data=pagination_data,
+        categories=categories,
+        search=search,
+        selected_category=category
+    )
 
 @app.get("/analytics")
 def analytics():
